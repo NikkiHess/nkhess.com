@@ -1,11 +1,9 @@
 /* Mona Sans open source font from GitHub */
 @font-face {
     font-family: 'Mona Sans';
-    src:
-      url('Mona-Sans.woff2') format('woff2 supports variations'),
-      url('Mona-Sans.woff2') format('woff2-variations');
+    src: url('fonts/Mona-Sans.woff2') format('woff2-variations');
     font-weight: 200 900;
-    font-stretch: 75% 125%;
+    /* font-stretch: 75% 125%; */
 }
 
 #introdiv {
@@ -14,6 +12,8 @@
     vertical-align: text-top;
     grid-template-columns: 1fr 1fr;
 }
+
+/* everything below here is a mess. fix it pls. */
 
 #intro {
     font-size: 1.3em;
