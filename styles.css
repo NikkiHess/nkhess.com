@@ -1,4 +1,30 @@
-.small {
-    /* inline-size: 150px; */
-    column-count: 2;
+/* Mona Sans open source font from GitHub */
+@font-face {
+    font-family: 'Mona Sans';
+    src:
+      url('Mona-Sans.woff2') format('woff2 supports variations'),
+      url('Mona-Sans.woff2') format('woff2-variations');
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+}
+
+#introdiv {
+    display: grid;
+    align-items: center;
+    vertical-align: text-top;
+    grid-template-columns: 1fr 1fr;
+}
+
+#nikki {
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.video {
+    width: 50%;
+    aspect-ratio: 16 / 9;
+}
+
+body {
+    font-family: 'Mona Sans';
 }
