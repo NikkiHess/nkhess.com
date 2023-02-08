@@ -102,7 +102,7 @@ li.navHome a img {
     margin: 5px 10px 0px 10px;
 }
 
-a.hyper {
+a.hyper:link, a.hyper:visited {
     text-decoration: none;
     color: #38A6FF;
 }
