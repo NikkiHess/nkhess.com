@@ -10,21 +10,35 @@
 
 #introdiv {
     display: grid;
-    align-items: center;
+    align-items: top;
     vertical-align: text-top;
     grid-template-columns: 1fr 1fr;
 }
 
+#intro {
+    font-size: 1.3em;
+}
+
 #nikki {
-    width: 200px;
+    width: 50%;
     overflow: none;
 }
 
 .video {
-    width: 960px;
+    width: 50%;
     aspect-ratio: 16 / 9;
+}
+
+.bigger {
+    font-size: 1.2em;
+}
+
+.big {
+    font-size: 1.1em;
 }
 
 body {
     font-family: 'Mona Sans';
+    font-size: 1.1em;
 }
+
