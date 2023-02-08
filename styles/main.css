@@ -107,6 +107,10 @@ a.hyper {
     color: #38A6FF;
 }
 
+a.hyper:hover {
+    text-decoration: underline;
+}
+
 .dropdownContent {
     opacity: 0;
     top: 73px;
