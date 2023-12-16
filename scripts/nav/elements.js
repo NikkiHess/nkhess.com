@@ -22,7 +22,8 @@ function createListItem(pathToRoot, page, label) {
 <link rel="icon" href="images/favicon.ico">
 		*/
 function loadCommonHead() {
-	const charset = document.createElement("meta")
+	// TODO
+	const charset = document.createElement("meta");
 }
 
 /* <ul class="nav">
@@ -52,12 +53,12 @@ function loadNav(pathToRoot) {
 	liHome.className = "navHome"; // give it navHome as a class
 
 	const aIndex = document.createElement("a");
-	aIndex.href = "${pathToRoot}index.html"; // create the link to the index
+	aIndex.href = `${pathToRoot}index.html`; // create the link to the index
 	liHome.appendChild(aIndex); // append the link to the index
 
 	const imgLogo = document.createElement("img");
 	imgLogo.id = "logo";
-	imgLogo.src = "${pathToRoot}images/logo.png";
+	imgLogo.src = `${pathToRoot}images/logo.png`;
 	imgLogo.alt = "Site Logo";
 	aIndex.appendChild(imgLogo);
 	
