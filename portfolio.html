@@ -3,7 +3,6 @@
 <html lang="en">
     <head>
         <script src="scripts/nav/elements.js"></script>
-        
         <title> Portfolio - Nikki Hess </title>
     </head>
     <body>
@@ -16,7 +15,37 @@
         
         <br><br><br>
 
-        <div id="portfolio">
+        <table id="filters">
+            <tr>
+                <th>Visibility</th>
+                <th>Type</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="visibility" id="allVisCheckbox" checked> All
+                </td>
+                <td>
+                    <input type="radio" name="type" id="allTypeCheckbox" checked> All
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="visibility" id="publicCheckbox"> Public
+                </td>
+                <td>
+                    <input type="radio" name="type" id="gameCheckbox"> Game
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="visibility" id="requestCheckbox"> Available Upon Request
+                </td>
+                <td>
+                    <input type="radio" name="type" id="softwareCheckbox"> Software
+                </td>
+            </tr>
+        </table>
+        <div id="projectList">
             <div class="project">
                 <h2>
                     <a href="https://github.com/NikkiHess/CSESimulator" class="hyper">EECS 498 Project 1 - CSE Simulator</a>

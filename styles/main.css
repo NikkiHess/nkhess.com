@@ -1,13 +1,4 @@
-/*
-Colors TODO: find more professional colors?
-------------
-pink: #ed99a0
-blue: #65aadb
-light pink: #ffc4c9
-dark blue: #
-*/
-
-/* Mona Sans open source font from GitHub */
+/* Load Mona Sans open source font from GitHub */
 @font-face {
     font-family: 'Mona Sans';
     src: url('fonts/Mona-Sans.woff2') format('woff2-variations');
@@ -15,39 +6,77 @@ dark blue: #
     /* font-stretch: 75% 125%; */
 }
 
-#logo {
-    width: 3rem;
-}
-
-div.intro {
-    display: grid;
-    align-items: top;
-    vertical-align: text-top;
-    grid-template-columns: 1fr 1fr;
-}
-
-p.intro {
-    font-size: 1.3em;
-}
-
-#nikki {
-    width: 50%;
-    overflow: none;
-}
-
-.video {
-    width: 50%;
-    aspect-ratio: 16 / 9;
-}
-
-body {
+html {
+    font-family: 'Mona Sans', sans-serif;
     background-color: #303031;
     color: white;
 }
 
-h1, h2, h3, p {
-    font-family: 'Mona Sans', sans-serif;
-    color: white;
+/* Responsiveness */
+.mobile-centered {
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 800px) {
+    .mobile-centered {
+        margin: auto;
+    }
+
+    .gallery {
+        margin-top: 0.5rem;
+        width: 90%;
+    }
+
+    #gallery-images {
+        width: 100%;
+        height: 25rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .gallery-button-text {
+        font-size: 100px;
+    }
+}
+
+body {
+    padding-top: 10px;
+}
+
+.ease-in {
+    transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+}
+
+/* Search Filter */
+#filters {
+    border: 1px solid white;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#filters td, #filters th {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-collapse: collapse;
+    padding-right: 10px;
+}
+
+#filters th {
+    padding-left: 5px;
+    font-size: 18px
+}
+
+/* Nav Bar */
+#logo {
+    width: 3rem;
 }
 
 ul.nav {
@@ -82,35 +111,6 @@ li.navItem a, .tab button {
     transition: 0.3s;
 }
 
-.label {
-    line-height: 0;
-    font-size: 2rem;
-}
-
-li.navItem a:link, .tab button,
-li.navItem a:visited, a.hyper:link, .header {
-    color: white;
-}
-
-li.navItem a:hover, .tab button:hover {
-    color: #ffc4c9;
-}
-
-li.navHome a img {
-    width: 42px;
-    text-align: center;
-    margin: 5px 10px 0px 10px;
-}
-
-a.hyper:link, a.hyper:visited {
-    text-decoration: none;
-    color: #38A6FF;
-}
-
-a.hyper:hover {
-    text-decoration: underline;
-}
-
 .dropdownContent {
     opacity: 0;
     top: 73px;
@@ -134,169 +134,48 @@ a.hyper:hover {
     -ms-transition: max-height 0.5s ease-in-out;
 }
 
-div.jsTab {
-    display: none;
-    border: 1px solid black;
-    background-color: #466293;
-    padding: 10px;
-    padding-top: 40px;
+
+/* Index */
+#intro {
+    display: grid;
+    align-items: top;
+    vertical-align: text-top;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.3em;
 }
 
-div.tab {
-    background-color: #466293;
-    width: 100%;
+#nikki {
+    width: 50%;
+    overflow: none;
 }
 
-div.tab button {
-    border: 1px solid black;
-    background-color: inherit;
-    float: left;
-    transition: 0.3s;
+/* Portfolio */
+.video {
+    width: 50%;
+    aspect-ratio: 16 / 9;
+}
+
+/* Format Links */
+li.navItem a:link, .tab button,
+li.navItem a:visited, a.hyper:link, .header {
+    color: white;
+}
+
+li.navItem a:hover, .tab button:hover {
+    color: #ffc4c9;
+}
+
+li.navHome a img {
+    width: 42px;
     text-align: center;
-    line-height: 100%;
-    width: 25%;
-    overflow: hidden;
+    margin: 5px 10px 0px 10px;
 }
 
-div.tab button.active {
-    border: 1px solid white;
-}
-
-.fence {
-    display: block;
-    border: 2px solid black;
-    background-color: #466293;
-    padding: 0px 10px 10px 10px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    width: 90%;
-    transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-}
-
-.main {
-    padding-top: 60px;
-    width: 100%;
-    height: 100%;
-}
-
-#profilePicture {
-    border-radius: 10px;
-    border: 1px solid black;
-}
-
-.sameLine {
-    display: inline-block;
-}
-
-.centered {
-    text-align: center;
-    margin: auto;
-}
-
-.centered-contents {
-    text-align: center;
-}
-
-.gallery {
-    display: block;
-    border: 2px solid black;
-    background-color: #466293;
-    padding: 0px 10px 10px 10px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    width: 30rem;
-    height: 35rem;
-    transition: all 0.5s ease-in-out;
-}
-
-#gallery-images {
-    align-items: center;
-    white-space: nowrap;
-    --n: 1;
-    overflow: hidden;
-    width: 100%;
-    width: calc(var(--n)*100%);
-    height: 24rem;
-    transform: translate(calc(var(--i)/var(--n)*-100%));
-    transition: all 0.5s ease-in-out;
-    z-index: 0;
-}
-#gallery-images img {
-    width: 100%;
-    width: calc(100%/var(--n));
-    display: inline-block;
-    vertical-align: top;
-    transition: all 0.5s ease-in-out;
-}
-
-.gallery-button {
-    background: none;
-    border: none;
-    z-index: 5;
-    transition: all 0.5s ease-in-out;
-}
-
-.gallery-button:focus {
-    outline: none;
-}
-
-.gallery-text {
-    line-height: 1.4rem;
-}
-
-.gallery-button-text {
-    font-size: 100px;
-    transition: all 0.5s ease-in-out;
-    color: #FFCE00;
-}
-
-.disabled {
-    color: lightgray;
-}
-
-.mobile-centered {
-    transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -webkit-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-}
-
-@media only screen and (max-width: 800px) {
-    .mobile-centered {
-        margin: auto;
-    }
-
-    .gallery {
-        margin-top: 0.5rem;
-        width: 90%;
-    }
-
-    #gallery-images {
-        width: 100%;
-        height: 25rem;
-        margin: 0;
-        padding: 0;
-    }
-
-    .gallery-button-text {
-        font-size: 100px;
-    }
-}
-
-.padded {
-    padding: 1rem 0px 1rem 0px;
-}
-
-.bordered {
-    border: 1px solid black;
-}
-
-.undecorated {
+a.hyper:link, a.hyper:visited {
     text-decoration: none;
+    color: #38A6FF;
 }
-  
+
+a.hyper:hover {
+    text-decoration: underline;
+}
