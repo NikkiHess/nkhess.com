@@ -20,10 +20,37 @@ function createListItem(pathToRoot, page, label) {
 <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Load favicon -->
 <link rel="icon" href="images/favicon.ico">
-		*/
+*/
+// TODO: make this better
 function loadCommonHead() {
-	// TODO
-	const charset = document.createElement("meta");
+	const head = document.head;
+	
+	const metaCharset = document.createElement("meta");
+	metaCharset.charset = "UTF-8";
+	head.appendChild(metaCharset);
+
+	const metaResponsive = document.createElement("meta");
+	metaResponsive.name = "viewport";
+	metaResponsive.content = "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
+	head.appendChild(metaResponsive);
+
+	const style = document.createElement("link");
+	style.rel = "stylesheet";
+	style.type = "text/css";
+	style.href = "styles/main.css";
+	head.appendChild(style);
+
+	const monaSans = document.createElement("link");
+	monaSans.rel = "preload";
+	monaSans.href = "fonts/Mona-Sans.woff2"
+	monaSans.as = "font";
+	monaSans.crossOrigin = true;
+	head.appendChild(monaSans);
+
+	const favIcon = document.createElement("link");
+	favIcon.rel = "icon";
+	favIcon.href = "images/favicon.ico";
+	head.appendChild(favIcon);
 }
 
 /* <ul class="nav">
