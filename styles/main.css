@@ -74,6 +74,10 @@ body {
     font-size: 18px
 }
 
+.hidden {
+    display: none;
+}
+
 /* Nav Bar */
 #logo {
     width: 3rem;

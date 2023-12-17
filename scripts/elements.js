@@ -21,7 +21,6 @@ function createListItem(pathToRoot, page, label) {
 <!-- Load favicon -->
 <link rel="icon" href="images/favicon.ico">
 */
-// TODO: make this better
 function loadCommonHead() {
 	const head = document.head;
 	
@@ -44,6 +43,7 @@ function loadCommonHead() {
 	monaSans.rel = "preload";
 	monaSans.href = "fonts/Mona-Sans.woff2"
 	monaSans.as = "font";
+	monaSans.type = "font/woff2"
 	monaSans.crossOrigin = true;
 	head.appendChild(monaSans);
 
