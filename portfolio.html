@@ -15,14 +15,20 @@
             loadNav("");
         </script>
         
+        <!-- TODO: Change from 3 breaks to CSS padding -->
         <br><br><br>
 
         <label>Search: <input type="search" name="search" maxlength=64></label>
         <br><br>
+        
+        <!-- TODO: Make this populate with JS -->
+        <!-- TODO: Add reset button -->
+        <!-- TODO: Better look? -->
         <table id="filters">
             <tr>
                 <th>Visibility</th>
                 <th>Type</th>
+                <th>Scope</th>
             </tr>
             <tr>
                 <td>
@@ -30,6 +36,9 @@
                 </td>
                 <td>
                     <input type="radio" name="type" id="allType" checked> All
+                </td>
+                <td>
+                    <input type="radio" name="scope" id="allScope" checked> All
                 </td>
             </tr>
             <tr>
@@ -39,6 +48,9 @@
                 <td>
                     <input type="radio" name="type" id="game"> Game
                 </td>
+                <td>
+                    <input type="radio" name="scope" id="school"> School
+                </td>
             </tr>
             <tr>
                 <td>
@@ -46,6 +58,16 @@
                 </td>
                 <td>
                     <input type="radio" name="type" id="software"> Software
+                </td>
+                <td>
+                    <input type="radio" name="scope" id="personal"> Personal
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="radio" name="scope" id="open-source"> Open Source
                 </td>
             </tr>
         </table>
