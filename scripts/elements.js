@@ -34,7 +34,6 @@ function loadNav(pathToRoot) {
 
 	// Create our home list item
 	const liHome = document.createElement("li");
-	liHome.href = pathToRoot + "index.html";
 	liHome.className = "navHome"; // give it navHome as a class
 
 	const aIndex = document.createElement("a");
