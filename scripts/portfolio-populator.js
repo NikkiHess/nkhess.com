@@ -1,19 +1,21 @@
 // TODO: Make projects drop-down
 // TODO: Shrink date and move closer to project name
 // TODO: Add support for scope (school/open-source/personal)
+// TODO: Upload old projects to GitHub (EECS 280, 281)
 
-// Creates a table with the given entries (strings)
-function createTable(entries) {
+// Creates a table with the given entries (2D array of DOM elements)
+function createTable(elements) {
     var table = document.createElement("table");
-    entries.forEach(entry => {
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
-        if(entry.includes("Scope")) entry = entry.replaceAll("-", " ");
-        td.textContent = entry;
-        td.style.textTransform = "capitalize";
 
-        tr.appendChild(td);
-        table.appendChild(tr);
+    elements.forEach(row => {
+        var tableRow = document.createElement("tr");
+        row.forEach(data => {
+            var tableData = document.createElement("td");
+            data.style.verticalAlign = "center";
+            tableData.appendChild(data);
+            tableRow.appendChild(tableData);
+        });
+        table.appendChild(tableRow);
     });
 
     return table;
@@ -30,23 +32,33 @@ function parseCSV(csvContent) {
     return parsedData.data;
 }
 
+// Makes a string lowercase and trims it
+function lowerTrim(string) {
+    return string.toLowerCase().trim();
+}
+
+function processScope(string) {
+    var out = string.charAt(0).toUpperCase() + string.slice(1);
+    return out.replaceAll("-", " ");
+}
+
 // Populates the portfolio with parsed entries from a csv file
 function populatePortfolio(data) {
     const projectList = document.querySelector("#projectList");
     projectList.innerHTML = "";
 
     data.forEach(function(entry) {
-        const projectDiv = document.createElement('div');
+        var projectDiv = document.createElement('div');
 
-        const classes = ["allVis", "allType", "allScope", "project"].concat(entry.Class.split(" "));
-        // TODO: Separate Class into Visibility and Type
-        classes.push(entry.Scope.toLowerCase());
+        var classes = ["allVis", "allType", "allScope", "project"];
+        classes.push(lowerTrim(entry.Visibility));
+        classes.push(lowerTrim(entry.Type));
+        classes.push(lowerTrim(entry.Scope));
         projectDiv.classList.add(...classes);
 
-        // TODO: Make "h2 a" and "table" into big row?
         // TODO: Allow sort by date?
-        const h2 = document.createElement("h2");
-        const a = document.createElement("a");
+        var h2 = document.createElement("h2");
+        var a = document.createElement("a");
         a.href = entry.GitHub;
         a.classList.add("hyper", "projectName");
         a.textContent = entry.Title;
@@ -54,15 +66,20 @@ function populatePortfolio(data) {
         h2.appendChild(a);
         projectDiv.appendChild(h2);
 
-        const description = document.createElement("p");
+        // Create dates and scope
+        const datesString = `${entry.StartDate} - ${entry.EndDate}`;
+        const scopeString = `Scope: ${processScope(entry.Scope)}`;
+
+        var dates = document.createElement("p");
+        dates.innerHTML = datesString;
+        var scope = document.createElement("p");
+        scope.innerHTML = scopeString;
+
+        var description = document.createElement("p");
         description.innerHTML = entry.Description;
         projectDiv.appendChild(description);
-
-        const datesString = `${entry.StartDate} - ${entry.EndDate}`;
-        const scopeString = `${entry.Scope}`;
-
-        const table = createTable([datesString, "Scope: " + scopeString]);
-        projectDiv.appendChild(table);
+        projectDiv.appendChild(dates);
+        projectDiv.appendChild(scope);
 
         if(entry.Video) {
             const video = document.createElement("iframe");

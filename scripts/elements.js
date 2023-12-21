@@ -11,48 +11,6 @@ function createListItem(pathToRoot, page, label) {
 	return li;
 }
 
-/*
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-
-<link rel="stylesheet" type="text/css" href="styles/main.css" /> 
-<!-- Preload Mona Sans by GitHub -->
-<link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Load favicon -->
-<link rel="icon" href="images/favicon.ico">
-*/
-function loadCommonHead() {
-	const head = document.head;
-	
-	const metaCharset = document.createElement("meta");
-	metaCharset.charset = "UTF-8";
-	head.appendChild(metaCharset);
-
-	const metaResponsive = document.createElement("meta");
-	metaResponsive.name = "viewport";
-	metaResponsive.content = "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"
-	head.appendChild(metaResponsive);
-
-	const style = document.createElement("link");
-	style.rel = "stylesheet";
-	style.type = "text/css";
-	style.href = "styles/main.css";
-	head.appendChild(style);
-
-	const monaSans = document.createElement("link");
-	monaSans.rel = "preload";
-	monaSans.href = "fonts/Mona-Sans.woff2"
-	monaSans.as = "font";
-	monaSans.type = "font/woff2"
-	monaSans.crossOrigin = true;
-	head.appendChild(monaSans);
-
-	const favIcon = document.createElement("link");
-	favIcon.rel = "icon";
-	favIcon.href = "images/favicon.ico";
-	head.appendChild(favIcon);
-}
-
 /* <ul class="nav">
 	<li class="navHome"> <a href="PATH_TO_ROOT/index.html"> <img src="PATH_TO_ROOT/images/logo.png" alt="Site logo"> </a> </li>
     <li class="navItem centered">

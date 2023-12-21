@@ -1,0 +1,18 @@
+/* Search Filter */
+#filters {
+    border: 1px solid white;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+#filters td, #filters th {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-collapse: collapse;
+    padding-right: 10px;
+}
+
+#filters th {
+    padding-left: 5px;
+    font-size: 18px
+}

@@ -2,19 +2,26 @@
 
 <html lang="en">
     <head>
+        <!-- START COMMON HEAD -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        
+        <!-- Preload Mona Sans by GitHub -->
+        <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+        <!-- Load favicon -->
+        <link rel="icon" href="images/favicon.ico">
+        <!-- Load custom scripts-->
+        <script src="scripts/elements.js"></script>
+        <script src="scripts/portfolio-populator.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="styles/common.css" /> 
+        <!-- END COMMON HEAD -->
+
         <title> Home - Nikki Hess </title>
     </head>
     <body>
-        <!-- Load the navigation bar and common head -->
-        <script src="scripts/elements.js"></script>
         <div id="nav"></div>
-        <script>
-            loadCommonHead();
-            loadNav("");
-        </script>
         
-        <br><br><br>
-
         <div id="intro">
             <p>
                 Hello, my name is Nikki Hess! I'm a junior at the University of Michigan studying computer science.
@@ -26,5 +33,11 @@
             </p>
             <img src="images/Nikki.jpg" alt="A picture of Nikki" id="nikki">
         </div>
+        
+        <!-- Load the navigation bar -->
+        <script src="scripts/elements.js"></script>
+        <script>
+            loadNav("");
+        </script>
     </body>
 </html>

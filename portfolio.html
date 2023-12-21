@@ -4,22 +4,30 @@
 
 <html lang="en">
     <head>
-        <script src="scripts/elements.js"></script>
+        <!-- START COMMON HEAD -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        
+        <!-- Preload Mona Sans by GitHub -->
+        <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+        <!-- Load favicon -->
+        <link rel="icon" href="images/favicon.ico">
+        
+        <link rel="stylesheet" type="text/css" href="styles/common.css" /> 
+        <!-- END COMMON HEAD -->
+
+        <!-- Load PapaParse for CSV parsing -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-        <script src="scripts/portfolio-populator.js"></script>
+        
+        <!-- Load portfolio styles-->
+        <link rel="stylesheet" type="text/css" href="styles/portfolio.css" /> 
+
         <title> Portfolio - Nikki Hess </title>
     </head>
     <body>
         <!-- Load the navigation bar and common head -->
         <div id="nav"></div>
-        <script>
-            loadCommonHead();
-            loadNav("");
-        </script>
         
-        <!-- TODO: Change from 3 breaks to CSS padding -->
-        <br><br><br>
-
         <label>Search: <input type="search" name="search" maxlength=64></label>
         <br><br>
         
@@ -77,7 +85,11 @@
         </div>
         <h3 id="no-projects" class="hidden">No projects here! Try another query.</h3>
         
+        <!-- Load custom scripts-->
         <script src="scripts/filters.js"></script>
+        <script src="scripts/elements.js"></script>
+        <script src="scripts/portfolio-populator.js"></script>
+        <script> loadNav(""); </script>
     </body>
 
 </html>

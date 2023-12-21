@@ -1,3 +1,5 @@
+// TODO: Sort?
+
 // Shows/hides all projects
 function toggleAllProjects(show) {
     const projects = document.querySelectorAll(".project");
@@ -14,7 +16,7 @@ function toggleAllProjects(show) {
 function showSelectedProjects() {
     toggleAllProjects(false);
 
-    // TODO: Is there a better way to do this for expandability?
+    // TODO: Is there a better way to do this for scalability?
     // Maybe take header names and iterate them (lowercase), then check?
     var search = document.querySelector("input[name=\"search\"]").value.toLowerCase();
     var visibility = document.querySelector("input[name=\"visibility\"]:checked").id;
