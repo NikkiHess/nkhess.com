@@ -1,53 +1,84 @@
 <!DOCTYPE html>
 
+<!-- TODO: Make videos cache/load faster? -->
+
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <!-- Idk what this does, from my old site -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-
-        <link rel="stylesheet" type="text/css" href="styles/main.css" /> 
-        <!-- Preload Mona Sans by GitHub -->
-        <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
-        <!-- Load favicon -->
-        <link rel="icon" href="images/favicon.ico">
-        
+        <script src="scripts/elements.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        <script src="scripts/portfolio-populator.js"></script>
         <title> Portfolio - Nikki Hess </title>
     </head>
     <body>
-        <!-- Load the navigation bar -->
+        <!-- Load the navigation bar and common head -->
         <div id="nav"></div>
-        <script src="scripts/nav/nav.js"></script>
-        <script>loadHTML("");</script>
+        <script>
+            loadCommonHead();
+            loadNav("");
+        </script>
+        
+        <!-- TODO: Change from 3 breaks to CSS padding -->
         <br><br><br>
 
-        <div id="portfolio">
-            <div class="project">
-                <h2>
-                    <a href="https://github.com/NikkiHess/CSESimulator" class="hyper">EECS 498 Project 1 - CSE Simulator</a>
-                </h2>
-                <p> A VR project made with Unreal Engine simulating what it's like to be in <a href="https://caen.engin.umich.edu/profile/beyster-1695/" class="hyper">BBB 1695</a>.</p>
-                <iframe class="video" src="https://www.youtube.com/embed/a5ZkLF40U_g" allowfullscreen></iframe>
-                <br>
-            </div>
-            <div class="project">
-                <h2>
-                    <a href="https://github.com/Alanhou1222/p2_a2go" class="hyper">EECS 498 Project 2 - A2 Go</a>
-                </h2>
-                <p> An AR project made with Unity Engine. Basically Pokémon Go but you're planting trees and fighting squirrels.</p>
-                <iframe class="video" src="https://www.youtube.com/embed/9KGog6Udv2c" allowfullscreen></iframe>
-                <br>
-            </div>
-            <div class="project">
-                <h2>
-                    <a href="https://github.com/neelietu/P3" class="hyper">EECS 498 Project 3 - AR Dog Trainer</a>
-                </h2>
-                <p> Train a dog in AR! Play fetch, feed him, take him for walks, and more!</p>
-                <iframe class="video" src="https://www.youtube.com/embed/6EVJTkTtzyU" allowfullscreen></iframe>
-                <br>
-            </div>
-            <h3>More projects to come in the future.</h3>
+        <label>Search: <input type="search" name="search" maxlength=64></label>
+        <br><br>
+        
+        <!-- TODO: Make this populate with JS -->
+        <!-- TODO: Add reset button -->
+        <!-- TODO: Better look? -->
+        <table id="filters">
+            <tr>
+                <th>Visibility</th>
+                <th>Type</th>
+                <th>Scope</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="visibility" id="allVis" checked> All
+                </td>
+                <td>
+                    <input type="radio" name="type" id="allType" checked> All
+                </td>
+                <td>
+                    <input type="radio" name="scope" id="allScope" checked> All
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="visibility" id="public"> Public
+                </td>
+                <td>
+                    <input type="radio" name="type" id="game"> Game
+                </td>
+                <td>
+                    <input type="radio" name="scope" id="school"> School
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="visibility" id="private"> Available Upon Request
+                </td>
+                <td>
+                    <input type="radio" name="type" id="software"> Software
+                </td>
+                <td>
+                    <input type="radio" name="scope" id="personal"> Personal
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <input type="radio" name="scope" id="open-source"> Open Source
+                </td>
+            </tr>
+        </table>
+        <div id="projectList">
+            
         </div>
+        <h3 id="no-projects" class="hidden">No projects here! Try another query.</h3>
+        
+        <script src="scripts/filters.js"></script>
     </body>
 
 </html>
