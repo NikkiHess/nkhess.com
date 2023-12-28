@@ -103,9 +103,9 @@ li.navItem a, .tab button {
     -ms-transition: max-height 0.5s ease-in-out;
 }
 
-/* Portfolio */
 .video {
-    width: 50%;
+    width: 100%;
+    max-width: 600px;
     aspect-ratio: 16 / 9;
 }
 
