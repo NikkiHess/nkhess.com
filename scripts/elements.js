@@ -11,6 +11,7 @@ function createListItem(pathToRoot, page, label) {
 	return li;
 }
 
+// TODO: Make this more expandable with listitems as args?
 /* <ul class="nav">
 	<li class="navHome"> <a href="PATH_TO_ROOT/index.html"> <img src="PATH_TO_ROOT/images/logo.png" alt="Site logo"> </a> </li>
     <li class="navItem centered">
@@ -34,7 +35,6 @@ function loadNav(pathToRoot) {
 
 	// Create our home list item
 	const liHome = document.createElement("li");
-	liHome.href = pathToRoot + "index.html";
 	liHome.className = "navHome"; // give it navHome as a class
 
 	const aIndex = document.createElement("a");

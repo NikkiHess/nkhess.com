@@ -43,10 +43,6 @@ html {
     }
 }
 
-body {
-    padding-top: 70px;
-}
-
 /* Nav Bar */
 #logo {
     width: 3rem;
@@ -107,30 +103,15 @@ li.navItem a, .tab button {
     -ms-transition: max-height 0.5s ease-in-out;
 }
 
-
-/* Index */
-#intro {
-    display: grid;
-    align-items: top;
-    vertical-align: text-top;
-    grid-template-columns: 1fr 1fr;
-    font-size: 1.3em;
-}
-
-#nikki {
-    width: 50%;
-    overflow: none;
-}
-
-/* Portfolio */
-.video {
-    width: 50%;
+iframe {
+    width: 100%;
+    max-width: 600px;
     aspect-ratio: 16 / 9;
 }
 
 /* Format Links */
 li.navItem a:link, .tab button,
-li.navItem a:visited, a.hyper:link, .header {
+li.navItem a:visited, .header {
     color: white;
 }
 
@@ -144,12 +125,12 @@ li.navHome a img {
     margin: 5px 10px 0px 10px;
 }
 
-a.hyper:link, a.hyper:visited {
+a:link, a:visited {
     text-decoration: none;
     color: #38A6FF;
 }
 
-a.hyper:hover {
+a:hover {
     text-decoration: underline;
 }
 
