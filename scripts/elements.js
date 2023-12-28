@@ -11,6 +11,7 @@ function createListItem(pathToRoot, page, label) {
 	return li;
 }
 
+// TODO: Make this more expandable with listitems as args?
 /* <ul class="nav">
 	<li class="navHome"> <a href="PATH_TO_ROOT/index.html"> <img src="PATH_TO_ROOT/images/logo.png" alt="Site logo"> </a> </li>
     <li class="navItem centered">
