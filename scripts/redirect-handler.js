@@ -1,5 +1,3 @@
-// TODO: Test on GitHub pages
-// TODO: Faster way?
 function modifyURL() {
         if(window.location.href.endsWith("/index.html"))
                 window.location.href = window.location.href.replace("/index.html", "");
@@ -7,5 +5,5 @@ function modifyURL() {
         window.location.href = window.location.href.replace(".html", "");
 }
 
-// Only perform after the page has fully loaded
-window.onload = modifyURL;
+// I don't wanna wait for this ik it's bad practice
+modifyURL();
