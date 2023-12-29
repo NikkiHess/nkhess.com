@@ -21,6 +21,36 @@
     font-size: 18px
 }
 
+/* TODO: Can we do this without !important? */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive layout for projects, 1-2-3 tile */
+.project {
+    width: 100%;
+}
+@media screen and (min-width: 901px) {
+    /* Projects tiled on bigger screens */
+    .project {
+        width: 48%;
+        margin-right: 2%;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    /* Projects tiled MORE on biggest screens */
+    .project {
+        width: 31%;
+        margin-right: 2%;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
 /* 
 <div>
     <label for="visibility">Visibility:</label>
