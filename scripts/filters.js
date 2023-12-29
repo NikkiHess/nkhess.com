@@ -23,15 +23,23 @@ function showSelectedProjects() {
     var type = document.querySelector("input[name=\"type\"]:checked").id;
     var scope = document.querySelector("input[name=\"scope\"]:checked").id;
 
-    var selector = `.${visibility}.${type}.${scope}`;
+    var selector = `.project` + (visibility ? `.${visibility}` : "") + 
+                    (type ? `.${type}` : "") + (scope ? `.${scope}` : "");
     console.log(selector);
     var selectedProjects = document.querySelectorAll(selector);
 
     // Update the list based on what is visible by the search query
     selectedProjects = Array.from(selectedProjects).filter(function(project) {
         var projectNameElement = project.querySelector("h2 a.projectName");
-        return projectNameElement &&
-            projectNameElement.textContent.toLowerCase().includes(search);
+        var descriptionElement = project.querySelector("p.description");
+
+        const projectNameFound = projectNameElement &&
+            projectNameElement.textContent.toLowerCase().includes(search.toLowerCase());
+        const descriptionFound = descriptionElement &&
+            descriptionElement.textContent.toLowerCase().includes(search.toLowerCase());
+
+        if(projectNameFound || descriptionFound) project.classList.remove("hidden");
+        return projectNameFound || descriptionFound;
     })
 
     if(selectedProjects.length == 0) {

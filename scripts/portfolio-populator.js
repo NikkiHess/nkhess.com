@@ -50,7 +50,7 @@ function populatePortfolio(data) {
     data.forEach(function(entry) {
         var projectDiv = document.createElement('div');
 
-        var classes = ["allVis", "allType", "allScope", "project"];
+        var classes = ["project"];
         classes.push(lowerTrim(entry.Visibility));
         classes.push(lowerTrim(entry.Type));
         classes.push(lowerTrim(entry.Scope));
@@ -76,6 +76,7 @@ function populatePortfolio(data) {
         scope.innerHTML = scopeString;
 
         var description = document.createElement("p");
+        description.classList.add("description");
         description.innerHTML = entry.Description;
         projectDiv.appendChild(description);
         projectDiv.appendChild(dates);
