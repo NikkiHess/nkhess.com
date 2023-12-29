@@ -9,13 +9,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         
-        <!-- Preload Mona Sans by GitHub -->
-        <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
         <!-- Load favicon -->
         <link rel="icon" href="images/favicon.ico">
         
         <link rel="stylesheet" type="text/css" href="styles/common.css" /> 
         <!-- END COMMON HEAD -->
+
+        <link rel="preload" href="fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
 
         <!-- Load PapaParse for CSV parsing -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -41,6 +41,34 @@
             
             <!-- TODO: Make this populate with JS -->
             <!-- TODO: Make this use a dropdown menu -->
+            <!-- <div>
+                <div class="custom-select">
+                    <select id="visibility">
+                        <option value="all">All<span></span></option>
+                        <option value="public">Public</option>
+                        <option value="private">Private</option>
+                    </select>
+                </div>
+            
+                <div class="custom-select">
+                    <select id="type">
+                        <option value="all" selected>All</option>
+                        <option value="game">Game</option>
+                        <option value="software">Software</option>
+                    </select>
+                </div>
+            
+                <div class="custom-select">
+                    <select id="scope">
+                        <option value="all" selected>All</option>
+                        <option value="school">School</option>
+                        <option value="personal">Personal</option>
+                        <option value="open-source">Open Source</option>
+                    </select>
+                </div>
+            </div> -->
+            
+
             <table id="filters">
                 <tr>
                     <th>Visibility</th>

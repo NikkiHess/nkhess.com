@@ -1,12 +1,13 @@
 /* Load Mona Sans open source font from GitHub */
 @font-face {
     font-family: 'Mona Sans';
-    src: url('fonts/Mona-Sans.woff2') format('woff2-variations');
-    font-weight: 200 900;
-    /* font-stretch: 75% 125%; */
+    src:
+        url('../fonts/Mona-Sans.woff2') format('woff2 supports variations'),
+        url('../fonts/Mona-Sans.woff2') format('woff2-variations');
+    font-weight: 700 100;
 }
 
-html {
+body {
     font-family: 'Mona Sans', sans-serif;
     background-color: #303031;
     color: white;
@@ -17,7 +18,6 @@ html {
 }
 
 /* Responsiveness */
-
 @media only screen and (max-width: 800px) {
     .mobile-centered {
         margin: auto;
