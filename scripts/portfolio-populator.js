@@ -86,6 +86,7 @@ function populatePortfolio(data) {
             const video = document.createElement("iframe");
             video.src = entry.Video;
             video.allowFullscreen = true;
+            video.loading = "lazy";
             projectDiv.appendChild(video);
         }
 
