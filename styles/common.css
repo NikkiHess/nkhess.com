@@ -7,9 +7,16 @@
     font-weight: 700 100;
 }
 
+/* Custom Colors */
+:root {
+    --background-color: #303031;
+    --highlight-color: #ffc4c9;
+    --link-color: #38a6ff;
+}
+
 body {
     font-family: 'Mona Sans', sans-serif;
-    background-color: #303031;
+    background-color: var(--background-color);
     color: white;
 }
 
@@ -53,7 +60,7 @@ ul.nav {
     position: fixed;
     margin: -2px;
     padding: 0px;
-    background-color: #303031;
+    background-color: var(--background-color);
     border: 2px solid black;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -77,29 +84,6 @@ li.navItem a, .tab button {
     transition: 0.3s;
 }
 
-.dropdownContent {
-    opacity: 0;
-    top: 73px;
-    position: absolute;
-    background-color: #466293;
-    border: 1px solid black;
-    max-height: 0;
-    height: 0;
-    overflow: hidden;
-}
-
-.dropdown:hover .dropdownContent {
-    max-height: 50rem;
-    height: auto;
-    opacity: 1;
-    z-index: 11;
-    transition: max-height 0.5s ease-in-out;
-    -moz-transition: max-height 0.5s ease-in-out;
-    -webkit-transition: max-height 0.5s ease-in-out;
-    -o-transition: max-height 0.5s ease-in-out;
-    -ms-transition: max-height 0.5s ease-in-out;
-}
-
 iframe {
     width: 100%;
     max-width: 600px;
@@ -113,7 +97,7 @@ li.navItem a:visited, .header {
 }
 
 li.navItem a:hover, .tab button:hover {
-    color: #ffc4c9;
+    color: var(--highlight-color);
 }
 
 li.navHome a img {
@@ -124,7 +108,7 @@ li.navHome a img {
 
 a:link, a:visited {
     text-decoration: none;
-    color: #38A6FF;
+    color: var(--link-color);
 }
 
 a:hover {

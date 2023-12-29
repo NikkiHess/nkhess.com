@@ -29,25 +29,30 @@
 /* Responsive layout for projects, 1-2-3 tile */
 .project {
     width: 100%;
+    transition: all 0.3s ease;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 2%;
 }
+
 @media screen and (min-width: 901px) {
-    /* Projects tiled on bigger screens */
+    /* Projects tiled on big screens */
     .project {
         width: 48%;
-        margin-right: 2%;
-        display: inline-block;
-        vertical-align: top;
     }
 }
 
-
 @media screen and (min-width: 1200px) {
-    /* Projects tiled MORE on biggest screens */
+    /* Projects tiled MORE on bigger screens */
     .project {
         width: 31%;
-        margin-right: 2%;
-        display: inline-block;
-        vertical-align: top;
+    }
+}
+
+@media screen and (min-width: 2500px) {
+    /* Projects tiled MORE on biggest screens */
+    .project {
+        width: 23%;
     }
 }
 
