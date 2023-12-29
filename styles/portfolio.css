@@ -56,38 +56,6 @@
     }
 }
 
-/* 
-<div>
-    <label for="visibility">Visibility:</label>
-    <div class="custom-select">
-        <select id="visibility">
-            <option value="all" selected>All</option>
-            <option value="public">Public</option>
-            <option value="private">Private</option>
-        </select>
-    </div>
-
-    <label for="type">Type:</label>
-    <div class="custom-select">
-        <select id="type">
-            <option value="all" selected>All</option>
-            <option value="game">Game</option>
-            <option value="software">Software</option>
-        </select>
-    </div>
-
-    <label for="scope">Scope:</label>
-    <div class="custom-select">
-        <select id="scope">
-            <option value="all" selected>All</option>
-            <option value="school">School</option>
-            <option value="personal">Personal</option>
-            <option value="open-source">Open Source</option>
-        </select>
-    </div>
-</div>
-*/
-
 .custom-select {
     position: relative;
     display: inline-block;
