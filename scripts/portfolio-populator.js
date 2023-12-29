@@ -83,7 +83,6 @@ function populatePortfolio(data) {
 
         if(entry.Video) {
             const video = document.createElement("iframe");
-            video.classList.add("video");
             video.src = entry.Video;
             video.allowFullscreen = true;
             projectDiv.appendChild(video);
