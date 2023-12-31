@@ -1,6 +1,6 @@
 Organization,Title,GitHub,Description,Visibility,Type,Scope,Video,Screenshot,StartDate,EndDate
-Oppia,Oppia,https://github.com/oppia/oppia/pull/19252,Increased coverage for scripts.common to 100% (pull request in progress),public,software,open-source,https://www.youtube.com/embed/vqty41iXPjk,,12/4/2023,Present
-,Creaturesque,https://github.com/NikkiHess/Creaturesque,A work-in-progress game where players draw wacky monsters based on shuffled description cards!,public,game,personal,https://www.youtube.com/embed/rRO9VowJiiM,,4/23/2023,Present
+Oppia,Oppia,https://github.com/oppia/oppia/pull/19252,"Successfully increased coverage for scripts.common to 100%. Pull request accepted, waiting for merge.",public,software,open-source,https://www.youtube.com/embed/vqty41iXPjk,,11/9/2023,Present
+,Creaturesque,https://github.com/NikkiHess/Creaturesque,Creaturesque is a work-in-progress party game inspired by Jackbox Games where players draw wacky creatures based on shuffled description cards!,public,game,personal,https://www.youtube.com/embed/rRO9VowJiiM,,4/23/2023,Present
 ,RGB Bot,https://github.com/NikkiHess/RGBBot,"A simple pycord bot for colorful, per-user Discord roles.",public,software,personal,,,5/27/2023,5/27/2023
 EECS 498,AR Dog Trainer,https://github.com/neelietu/P3,"Train a dog in AR! Play fetch, feed him, take him for walks, and more!",private,game,school,https://www.youtube.com/embed/6EVJTkTtzyU,,3/24/2023,4/17/2023
 EECS 498,A2 Go,https://github.com/Alanhou1222/p2_a2go,An AR project made with Unity Engine. Basically Pokémon Go but you're planting trees and fighting squirrels.,private,game,school,https://www.youtube.com/embed/9KGog6Udv2c,,2/15/2023,3/12/2023

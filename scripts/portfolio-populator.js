@@ -95,7 +95,7 @@ function populatePortfolio(data) {
 }
 
 // Main
-const portfolioPath = "portfolio/portfolio.csv";
+const portfolioPath = "documents/portfolio.csv";
 
 fetch(portfolioPath)
     .then(response => response.text())

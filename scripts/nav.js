@@ -1,7 +1,7 @@
-// Helper function that creates list items
-function createListItem(pathToRoot, page, label) {
+// Helper function that creates nav items with relative links and text
+function createRelativeNavTextItem(pathToRoot, page, label) {
 	const li = document.createElement("li");
-	li.className = "navItem centered";
+	li.className = "navItem";
 	
 	const a = document.createElement("a");
 	a.href = pathToRoot + page;
@@ -11,15 +11,31 @@ function createListItem(pathToRoot, page, label) {
 	return li;
 }
 
-// TODO: Make this more expandable with listitems as args?
-/* <ul class="nav">
-	<li class="navHome"> <a href="PATH_TO_ROOT/index.html"> <img src="PATH_TO_ROOT/images/logo.png" alt="Site logo"> </a> </li>
-    <li class="navItem centered">
-            <a class="navItem centered" href="PATH_TO_ROOT/portfolio/index.html">
-                Portfolio
-            </a>
-    </li>
-</ul> */
+// Helper function that creates social links (image)
+function createSocialLink(page, imgUrl, alt) {
+	const li = document.createElement("li");
+	li.className = "socialItem";
+
+	const a = document.createElement("a");
+	a.href = page;
+	
+	const img = document.createElement("img");
+	img.src = imgUrl;
+	img.alt = alt;
+	img.addEventListener("mouseenter", function() {
+		img.src = imgUrl.replace(".png", "-hover.png");
+	})
+	img.addEventListener("mouseleave", function() {
+		img.src = imgUrl.replace("-hover.png", ".png");
+	})
+
+	a.appendChild(img);
+	li.appendChild(a);
+
+	return li;
+}
+
+// TODO: Make this more scalable with listitems as args?
 // Creates a navigation element with dynamic paths
 function loadNav(pathToRoot) {
 	// Get the navigation element
@@ -30,8 +46,8 @@ function loadNav(pathToRoot) {
 		pathToRoot += "/";
 	
 	// Create our unordered list
-	const ul = document.createElement("ul");
-	ul.className = "nav";
+	const navUL = document.createElement("ul");
+	navUL.className = "nav";
 
 	// Create our home list item
 	const liHome = document.createElement("li");
@@ -47,10 +63,21 @@ function loadNav(pathToRoot) {
 	imgLogo.alt = "Site Logo";
 	aIndex.appendChild(imgLogo);
 	
-	ul.appendChild(liHome);
+	navUL.appendChild(liHome);
 
-	const listItems = [createListItem(pathToRoot, "portfolio.html", "Portfolio")];
-	listItems.forEach(item => ul.appendChild(item))
+	// Create all other navItems
+	const navItems = [
+		createRelativeNavTextItem(pathToRoot, "portfolio.html", "Portfolio"),
+		createRelativeNavTextItem(pathToRoot, "resume.html", "Resume")
+	];
+	navItems.forEach(item => navUL.appendChild(item));
 
-	navElement.appendChild(ul);
+	const socImgs = "../images/socials";
+	const socialItems = [
+		createSocialLink("https://github.com/nikkihess", `${socImgs}/GitHub.png`, "GitHub"),
+		createSocialLink("https://linkedin.com/in/thenikkihess", `${socImgs}/LinkedIn.png`, "LinkedIn")
+	];
+	socialItems.forEach(item => navUL.appendChild(item));
+
+	navElement.appendChild(navUL);
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script src="scripts/redirect-handler.js"></script>
+        <!-- START COMMON HEAD -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        
+        <!-- Load favicon -->
+        <link rel="icon" href="images/favicon.ico">
+        
+        <!-- Preload Mona Sans -->
+        <link rel="preload" href="fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+
+        <link rel="stylesheet" type="text/css" href="styles/common.css" /> 
+        <!-- END COMMON HEAD -->
+
+        <!-- <link rel="stylesheet" type="text/css" href="styles/index.css" />  -->
+
+        <title> Resume - Nikki Hess </title>
+    </head>
+    <body>
+        <noscript>
+            <style>
+                #bodywrapper { display: none; }
+            </style>
+            <p> It appears JavaScript is not enabled! Please enable it in your browser. </p>
+        </noscript>
+
+        <div id="nav"></div>
+            
+        <div id="body-wrapper">
+            <embed src="documents/resume.pdf" width="100%" height="1000" type="application/pdf">
+
+            <!-- Load the site navigation bar -->
+            <script src="scripts/nav.js"></script>
+            <script> loadNav(""); </script>
+        </div>
+    </body>
+</html>
