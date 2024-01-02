@@ -87,6 +87,7 @@ function populatePortfolio(data) {
             video.src = entry.Video;
             video.allowFullscreen = true;
             video.loading = "lazy";
+            video.classList.add("video");
             projectDiv.appendChild(video);
         }
 
