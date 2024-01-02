@@ -32,7 +32,6 @@ body {
 
 /* Nav Bar */
 #logo {
-    width: 3rem;
     transition: transform 0.5s ease;
 }
 
@@ -44,7 +43,6 @@ ul.nav {
     list-style-type: none;
     top: 0;
     left: 0;
-    height: 60px;
     width: 100%;
     position: fixed;
     margin: -2px;
@@ -52,7 +50,7 @@ ul.nav {
     background-color: var(--background-color);
     border: 2px solid black;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 li.navItem, li.navHome {
@@ -68,7 +66,6 @@ li.navItem a, .tab button {
     text-decoration: none;
     font-family: 'Mona Sans', sans-serif;
     font-weight: 700;
-    font-size: 22px;
     text-transform: uppercase;
     text-align: left;
     padding: 13px;
@@ -91,12 +88,6 @@ li.navHome img {
 
 li.socialItem {
     float: right;
-}
-
-li.socialItem img {
-    width: 36px;
-    padding: 12px 16px 12px 0px;
-    transition: var(--ez-ease);
 }
 
 /* Nav Responseiveness */
@@ -173,7 +164,7 @@ li.socialItem img {
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 369px) {
+@media screen and (min-width: 250px) and (max-width: 369px) {
     #logo {
         width: 2.5rem;
     }
