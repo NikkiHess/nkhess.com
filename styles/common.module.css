@@ -1,0 +1,48 @@
+/* Load Mona Sans open source font from GitHub */
+@font-face {
+    font-family: 'Mona Sans';
+    src:
+        url('../fonts/Mona-Sans.woff2') format('woff2 supports variations'),
+        url('../fonts/Mona-Sans.woff2') format('woff2-variations');
+    font-weight: 700 100;
+}
+
+
+:global(:root) {
+    /* Custom Colors */
+    --background-color: #303031;
+    --highlight-color: #ffc4c9;
+    --link-color: #38a6ff;
+
+    /* Animations */
+    --ez-ease: all 0.5s ease-in, all 0.2s ease-out;
+}
+
+/* Body Stuff */
+:global(body) {
+    font-family: 'Mona Sans', sans-serif;
+    background-color: var(--background-color);
+    color: white;
+}
+
+#body-wrapper {
+    padding-top: 50px;
+}
+
+.video {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16 / 9;
+}
+
+
+/* Format Links */
+
+a:link, a:visited {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
