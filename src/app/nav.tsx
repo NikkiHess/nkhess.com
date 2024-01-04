@@ -1,19 +1,20 @@
 import React from 'react';
-import styles from '../../styles/nav.module.css'
+import navStyles from '../../styles/nav.module.css'
 
-interface Props {
-    pathToRoot: string;
-}
-
-const Nav: React.FC<Props> = ({ pathToRoot }) => {
+const Nav: React.FC = () => {
     return (
-    <div id='nav'>
-        <li className='navHome'>
-            <a href={`${pathToRoot}`}>
-                <img src='images/logo.png' alt='Site Logo' className={styles.logo}></img>
+    <ul id={navStyles.nav}>
+        <li id={navStyles.navHome}>
+            <a href={"/"}>
+                <img src='images/logo.png' alt='Site Logo' id={navStyles.logo}></img>
             </a>
         </li>
-    </div>
+        <li className={navStyles.navItem}>
+            <a href={"/portfolio"}>
+                Portfolio
+            </a>
+        </li>
+    </ul>
     );
 }
 

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Home - Nikki Hess',
-  description: 'Nikki Hess\'s portfolio site homepage!',
+    title: 'Portfolio - Nikki Hess',
+    description: 'Nikki Hess\'s projects',
 }
 
 const Home = () => (

@@ -1,13 +1,6 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Home - Nikki Hess',
-  description: 'Nikki Hess Homepage :)',
-}
+import commonStyles from '../../styles/common.module.css'
+import Nav from "./nav"
 
 export default function RootLayout({
   children,
@@ -16,7 +9,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Nav></Nav>
+        <div className={commonStyles.bodyWrapper}>
+          {children}
+        </div>
+      </body>
     </html>
   )
 }

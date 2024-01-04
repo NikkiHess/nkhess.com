@@ -1,13 +1,13 @@
-.logo {
+#logo {
     transition: transform 0.5s ease;
     width: 3rem;
 }
 
-.logo:hover {
+#logo:hover {
     transform: translateY(-2px);
 }
 
-ul.nav {
+ul#nav {
     list-style-type: none;
     top: 0;
     left: 0;
@@ -15,16 +15,20 @@ ul.nav {
     position: fixed;
     margin: -2px;
     padding: 0px;
-    background-color: var(--background-color);
+    background-color: #303031;
     border: 2px solid black;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
 
-li.navItem, li.navHome {
+li.navItem, #navHome {
     float: left;
     overflow: hidden;
-    transition: var(--ez-ease);
+    transition: all 0.5s ease-in, all 0.2s ease-out;
+}
+
+#navHome {
+    margin: 5px 10px 0px 10px;
 }
 
 li.navItem a, .tab button {
@@ -37,7 +41,7 @@ li.navItem a, .tab button {
     text-transform: uppercase;
     text-align: left;
     padding: 13px;
-    transition: var(--ez-ease);
+    transition: all 0.5s ease-in, all 0.2s ease-out;
 }
 
 li.navItem a:link, .tab button,
@@ -46,12 +50,7 @@ li.navItem a:visited, .header {
 }
 
 li.navItem a:hover, .tab button:hover {
-    color: var(--highlight-color);
-}
-
-li.navHome img {
-    width: 42px;
-    margin: 5px 10px 0px 10px;
+    color: #ffc4c9
 }
 
 li.socialItem {
