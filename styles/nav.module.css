@@ -7,7 +7,7 @@
     transform: translateY(-2px);
 }
 
-ul#nav {
+#nav {
     list-style-type: none;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@ ul#nav {
     overflow: hidden;
 }
 
-li.navItem, #navHome {
+.navItem, #navHome {
     float: left;
     overflow: hidden;
     transition: all 0.5s ease-in, all 0.2s ease-out;
@@ -31,7 +31,7 @@ li.navItem, #navHome {
     margin: 5px 10px 0px 10px;
 }
 
-li.navItem a, .tab button {
+.navItem a, .tab button {
     display: inline-block;
     width: 100%;
     line-height: 32px;
@@ -44,35 +44,35 @@ li.navItem a, .tab button {
     transition: all 0.5s ease-in, all 0.2s ease-out;
 }
 
-li.navItem a:link, .tab button,
-li.navItem a:visited, .header {
+.navItem a:link, .tab button,
+.navItem a:visited, .header {
     color: white;
 }
 
-li.navItem a:hover, .tab button:hover {
+.navItem a:hover, .tab button:hover {
     color: #ffc4c9
 }
 
-li.socialItem {
+.socialItem {
     float: right;
 }
 
 /* Nav Responseiveness */
 @media screen and (min-width: 465px) {
-    .logo {
+    #logo {
         width: 3rem;
     }
     
-    ul.nav {
+    #nav {
         height: 60px;
     }
 
-    li.navItem a, .tab button {
+    .navItem a, .tab button {
         font-size: 22px;
         padding: 15px 16px 13px 13px;
     }
     
-    li.socialItem img {
+    .socialItem img {
         width: 36px;
         padding: 12px 16px 12px 0px;
     }
@@ -83,20 +83,20 @@ li.socialItem {
 }
 
 @media screen and (min-width: 410px) and (max-width: 464px) {
-    .logo {
+    #logo {
         width: 2.5rem;
     }
     
-    ul.nav {
+    #nav {
         height: 53px;
     }
 
-    li.navItem a, .tab button {
+    .navItem a, .tab button {
         font-size: 18px;
         padding: 12px 10px 0px 0px;
     }
     
-    li.socialItem img {
+    .socialItem img {
         width: 28px;
         padding: 12px 16px 12px 0px;
     }
@@ -108,20 +108,20 @@ li.socialItem {
 }
 
 @media screen and (min-width: 370px) and (max-width: 409px) {
-    .logo {
+    #logo {
         width: 2.5rem;
     }
     
-    ul.nav {
+    #nav {
         height: 53px;
     }
 
-    li.navItem a, .tab button {
+    .navItem a, .tab button {
         font-size: 18px;
         padding: 12px 10px 0px 0px;
     }
     
-    li.socialItem img {
+    .socialItem img {
         width: 28px;
         padding: 12px 16px 12px 0px;
     }
@@ -132,20 +132,20 @@ li.socialItem {
 }
 
 @media screen and (min-width: 250px) and (max-width: 369px) {
-    .logo {
+    #logo {
         width: 2.5rem;
     }
     
-    ul.nav {
+    #nav {
         height: 53px;
     }
 
-    li.navItem a, .tab button {
+    .navItem a, .tab button {
         font-size: 16px;
         padding: 12px 10px 0px 0px;
     }
     
-    li.socialItem img {
+    .socialItem img {
         width: 26px;
         padding: 12px 16px 12px 0px;
     }
