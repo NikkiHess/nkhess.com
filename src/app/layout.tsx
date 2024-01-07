@@ -1,6 +1,6 @@
 import './globals.css'
-import commonStyles from '../../styles/common.module.css'
 import Nav from "./components/nav"
+import commonStyles from '../../styles/common.module.css'
 
 export default function RootLayout({
   children,
@@ -11,7 +11,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Nav></Nav>
-        <div className={commonStyles.bodyWrapper}>
+        <div id={commonStyles.bodyWrapper}>
           {children}
         </div>
       </body>

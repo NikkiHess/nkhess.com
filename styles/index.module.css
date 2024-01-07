@@ -1,14 +1,97 @@
-#intro {
-    font-size: 20px;
+#about {
+    margin-top: 0;
+    padding-left: 10px;
+    font-size: 36px;
 }
 
-#nikki {
-    width: 300px;
-    overflow: none;
+#nikkiPikki {
+    width: 400px;
+    overflow: hidden;
 }
 
-h3 {
-    padding: 0px;
-    margin-top: 8px;
-    margin-bottom: 0px;
+#homeContent {
+    text-align: center;
+    position: relative; 
+}
+
+#innerHome {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* List styling */
+#bullets {
+    list-style: none;
+    margin-left: 0;
+    font-size: 24px;
+    text-align: left;
+}
+
+#bullets li:nth-child(odd):before {
+    color: #ed99a0;
+}
+
+#bullets li:nth-child(even):before {
+    color: #65aadb;
+}
+
+#bullets li:before {
+    content: '\2605';
+    font-size: 30px;
+    line-height: 40px;
+    padding-right: 10px;
+    -webkit-text-stroke: 1px white;
+}
+
+@media screen and (min-width: 465px) {
+    #innerHome {
+        width: 250px;
+    }
+    
+}
+
+@media screen and (min-width: 410px) and (max-width: 464px) {
+    #nikkiPikki {
+        width: 80%;
+    }
+
+    #innerHome {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 370px) and (max-width: 409px) {
+    #nikkiPikki {
+        width: 80%;
+    }
+
+    #innerHome {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 369px) {
+    #nikkiPikki {
+        width: 90%;
+    }
+
+    #innerHome {
+        width: 100%;
+    }
+
+    #about {
+        font-size: 30px;
+    }
+
+    #bullets {
+        font-size: 15px;
+    }
+
+    #bullets li:before {
+        font-size: 3dvh;
+    }
 }

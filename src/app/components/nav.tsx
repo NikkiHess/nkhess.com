@@ -16,12 +16,10 @@ const NavItem: React.FC<{ name: string; link: string; }> = ({
 const SocialItem: React.FC<{ name: string; link: string; imgSrc: string; hoverImgSrc: string}> = ({
     name, link, imgSrc, hoverImgSrc
 }) => {
-
     return(
         <li className={navStyles.socialItem}>
             <a href={link} className={navStyles.imgContainer}>
                 <img src={imgSrc} alt={name}></img>
-                {/* <img src={hoverImgSrc} alt={name}></img> */}
             </a>
         </li>
     )
