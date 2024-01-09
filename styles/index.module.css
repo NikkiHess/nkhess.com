@@ -1,17 +1,48 @@
+#homeContainer, #imgContainer {
+    text-align: center;
+    position: relative;
+
+    transition: all 0.5s ease-in, all 0.2s ease-out;
+}
+
 #about {
-    margin-top: 0;
+    margin-top: 10px;
     padding-left: 10px;
     font-size: 36px;
+
+    transition: all 0.3s ease;
 }
 
 #nikkiPikki {
-    width: 400px;
-    overflow: hidden;
+    outline: 3px solid white;
+
+    transition: all 0.3s ease;
 }
 
-#homeContent {
-    text-align: center;
-    position: relative; 
+#topLeftStar {
+    position: absolute;
+    top: -12.5vw;
+    left: 0;
+    transform: rotate(8deg);
+
+    font-size: 15vw;
+    color: #ed99a0;
+    -webkit-text-stroke: .5vw white;
+
+    transition: all 0.5s ease-in, all 0.2s ease-out;
+}
+
+#bottomRightStar {
+    position: absolute;
+    bottom: -7vw;
+    right: 0;
+    transform: rotate(-8deg);
+
+    font-size: 15vw;
+    color: #65aadb;
+    -webkit-text-stroke: .5vw white;
+
+    transition: all 0.5s ease-in, all 0.2s ease-out;
 }
 
 #innerHome {
@@ -26,9 +57,13 @@
 /* List styling */
 #bullets {
     list-style: none;
-    margin-left: 0;
-    font-size: 24px;
     text-align: left;
+    margin-top: -20px;
+    padding-left: 5%;
+
+    font-size: 24px;
+    
+    transition: all 0.3s ease;
 }
 
 #bullets li:nth-child(odd):before {
@@ -40,23 +75,43 @@
 }
 
 #bullets li:before {
-    content: '\2605';
-    font-size: 30px;
-    line-height: 40px;
     padding-right: 10px;
-    -webkit-text-stroke: 1px white;
+
+    font-size: 30px;
+    content: '\2605'; /* Star */
+    line-height: 40px;
+    -webkit-text-stroke: .25vw white;
 }
 
-@media screen and (min-width: 465px) {
-    #innerHome {
-        width: 250px;
+@media screen and (min-width: 466px) {
+    #homeContainer {
+        margin-top: 20px;
     }
+
+    /* TODO: Will this cause issues? */
+    #imgContainer {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    #nikkiPikki {
+        width: 400px;
+    }
+
+    #topLeftStar {
+        top: -60px;
+        left: -30px;
     
-}
+        font-size: 75px;
+        -webkit-text-stroke: 2.5px white;
+    }
 
-@media screen and (min-width: 410px) and (max-width: 464px) {
-    #nikkiPikki {
-        width: 80%;
+    #bottomRightStar {
+        bottom: -40px;
+        right: -30px;
+    
+        font-size: 75px;
+        -webkit-text-stroke: 2.5px white;
     }
 
     #innerHome {
@@ -64,9 +119,13 @@
     }
 }
 
-@media screen and (min-width: 370px) and (max-width: 409px) {
+@media screen and (max-width: 465px) {
+    #homeContainer {
+        margin-top: 20px;
+    }
+
     #nikkiPikki {
-        width: 80%;
+        width: 85%;
     }
 
     #innerHome {
@@ -74,15 +133,25 @@
     }
 }
 
-@media screen and (min-width: 0px) and (max-width: 369px) {
-    #nikkiPikki {
-        width: 90%;
+@media screen and (max-width: 410px) {
+    #about {
+        font-size: 35px;
     }
 
-    #innerHome {
-        width: 100%;
+    #bullets {
+        font-size: 19px;
     }
 
+    #bullets li:before {
+        font-size: 40px;
+    }
+
+    #homeContainer {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 370px) {
     #about {
         font-size: 30px;
     }
@@ -92,6 +161,6 @@
     }
 
     #bullets li:before {
-        font-size: 3dvh;
+        font-size: 30px;
     }
 }
