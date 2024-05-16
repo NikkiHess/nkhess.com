@@ -80,7 +80,13 @@
     font-size: 30px;
     content: '\2605'; /* Star */
     line-height: 40px;
-    -webkit-text-stroke: .25vw white;
+    -webkit-text-stroke: 2px white;
+}
+
+#bulletContainer {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (min-width: 466px) {

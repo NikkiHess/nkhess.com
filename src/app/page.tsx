@@ -20,20 +20,22 @@ const Home = () => (
       <p id={indexStyles.about}>
         Hello, my name is <b>Nikki Hess</b>! 
       </p>
-      <ul id={indexStyles.bullets}>
-        <li>
-          Senior at the <b>University of Michigan</b> studying computer science
-        </li>
-        <li>
-          <b>Game Developer</b>
-        </li>
-        <li>
-          <b>Software Engineer</b>, focusing on backend
-        </li>
-        <li>
-          Working on learning <b> Next.js </b>
-        </li>
-      </ul>
+      <div id={indexStyles.bulletContainer}>
+        <ul id={indexStyles.bullets}>
+          <li>
+            Senior at the <b>University of Michigan</b> studying computer science
+          </li>
+          <li>
+            <b>Game Developer</b>
+          </li>
+          <li>
+            <b>Software Engineer</b>, focusing on backend
+          </li>
+          <li>
+            Working on learning <b> Next.js </b>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 );
