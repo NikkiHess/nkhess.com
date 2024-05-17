@@ -7,6 +7,8 @@
     border: 1px solid white;
     border-collapse: collapse;
     text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #filters td, #filters th {
@@ -14,11 +16,18 @@
     border-right: 1px solid white;
     border-collapse: collapse;
     padding-right: 10px;
+    padding-top: 5px;
+}
+
+#filters td {
+    vertical-align: text-top;
+    padding-bottom: 10px;
 }
 
 #filters th {
     padding-left: 5px;
-    font-size: 18px
+    font-size: 18px;
+    line-height: 20px;
 }
 
 /* TODO: Can we do this without !important? */
@@ -50,7 +59,7 @@
 }
 
 @media screen and (min-width: 2500px) {
-    /* Projects tiled MORE on biggest screens */
+    /* Projects tiled MORE MORE on biggest screens */
     .project {
         width: 23%;
     }

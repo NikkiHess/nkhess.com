@@ -45,25 +45,4 @@ const Nav: React.FC = () => {
     );
 }
 
-// const li = document.createElement("li");
-// li.className = "socialItem";
-
-// const a = document.createElement("a");
-// a.href = page;
-
-// const img = document.createElement("img");
-// img.src = imgUrl;
-// img.alt = alt;
-// img.addEventListener("mouseenter", function() {
-//     img.src = imgUrl.replace(".png", "-hover.png");
-// })
-// img.addEventListener("mouseleave", function() {
-//     img.src = imgUrl.replace("-hover.png", ".png");
-// })
-
-// a.appendChild(img);
-// li.appendChild(a);
-
-// return li;
-
 export default Nav;
