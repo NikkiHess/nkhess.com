@@ -1,18 +1,18 @@
+import React, {useState, Component} from "react";
 import portfolioStyles from "../../../styles/portfolio.module.css";
-import Papa from "papaparse"
 
-function parseCSV(csvContent: string) {
-    // PapaParse will handle this for us <3
-    const parsedData = Papa.parse(csvContent, {
-        header: true, // Header contains titles
-        dynamicTyping: true, // Automatically convert numeric values
-    });
-
-    return parsedData.data;
+interface Project {
+    title: string;
+    description: string;
+    visibility: string;
+    type: string;
+    scope: string;
+    dateRange: string;
 }
 
+class Projects extends Component {
+    const [projects, setProjects] = useState([]); // project map
 
-const Projects: React.FC = () => {
     return (
         <div>
             
