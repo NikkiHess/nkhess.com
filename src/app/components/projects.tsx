@@ -24,6 +24,30 @@ interface ProjectsState {
     projects: Project[];
 }
 
+function dateToNumber(dateStr: string): number {
+    if(dateStr == "") return 999999999999999;
+    const date = new Date(dateStr);
+    return date.getTime();
+}
+
+// returns sorting info for project end date
+function projectDateComparator(project1: Project, project2: Project): number {
+    const endDate1 = dateToNumber(project1.endDate);
+    const endDate2 = dateToNumber(project2.endDate);
+
+    // if dates are not the same, return info on which date is greater
+    if(endDate1 != endDate2)
+        return endDate2 - endDate1;
+    
+    // otherwise, return in alphabetical order
+    return projectTitleComparator(project1, project2);
+}
+
+// returns sorting info for project title
+function projectTitleComparator(project1: Project, project2: Project): number {
+    return project1.title.localeCompare(project2.title);
+}
+
 class Projects extends Component<{}, ProjectsState> {
     constructor(props: {}) {
         super(props);
@@ -44,6 +68,8 @@ class Projects extends Component<{}, ProjectsState> {
     render(): React.ReactNode {
         const {projects} = this.state;
         
+        projects.sort(projectDateComparator);
+
         return (
         <div className={portfolioStyles.projectsContainer}>
             {projects.map((project, index) => (
