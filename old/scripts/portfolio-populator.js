@@ -1,6 +1,5 @@
 // TODO: Make projects drop-down
 // TODO: Shrink date and move closer to project name
-// TODO: Add support for scope (school/open-source/personal)
 // TODO: Upload old projects to GitHub (EECS 280, 281)
 
 // Creates a table with the given entries (2D array of DOM elements)
