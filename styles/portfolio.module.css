@@ -42,6 +42,7 @@
     display: inline-block;
     vertical-align: top;
     margin-right: 2%;
+    margin-bottom: 20px;
 }
 
 @media screen and (min-width: 901px) {
@@ -65,9 +66,35 @@
     }
 }
 
+.title {
+    display: inline;
+}
+
+.scope {
+    display: inline;
+    font-size: 16px;
+}
+
+.projDetails {
+    font-size: 16px;
+    line-height: 10px;
+    margin-bottom: 10px;
+}
+
+.shortDesc {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
 .custom-select {
     position: relative;
     display: inline-block;
+}
+
+.video {
+    width: 100%;
+    aspect-ratio: 16/9;
 }
 
 .custom-select select {
