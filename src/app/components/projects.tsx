@@ -46,6 +46,11 @@ interface Project {
 
 interface ProjectsProps {
     searchQuery: string;
+    filters: {
+        visibility: string,
+        type: string,
+        scope: string
+    }
 }
 
 interface ProjectsState {
@@ -56,7 +61,7 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
     constructor(props: ProjectsProps) {
         super(props);
         this.state = {
-            projects: [],
+            projects: []
         };
     }
 
@@ -76,7 +81,7 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
         // sort by
         projects.sort(projectDateComparator);
         
-        // filters for searched title, short desc, and technologies
+        // filters for searched title, short desc, technologies, organization
         const searchFiltered = projects.filter(project => {
             const searchLower = searchQuery.toLowerCase();
             let techFound = false;
@@ -90,14 +95,36 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                 }
             });
 
-            return project.title.toLowerCase().includes(searchLower) 
-                    || project.shortDescription.toLowerCase().includes(searchLower) 
-                    || techFound;
-        })
+            return project.title.toLowerCase().includes(searchLower) || 
+                    project.shortDescription.toLowerCase().includes(searchLower) ||
+                    project.organization.toLowerCase().includes(searchLower) ||
+                    techFound;
+        });
+
+        // filter based on radio button inputs
+        const radioFiltered = searchFiltered.filter(project => {
+            let visibilityFound = false, typeFound = false, scopeFound = false;
+
+            visibilityFound = 
+                this.props.filters.visibility == "all" ||
+                (this.props.filters.visibility == "public" && project.isPublic) ||
+                (this.props.filters.visibility == "private" && !project.isPublic);
+
+            typeFound =
+                this.props.filters.type == "all" ||
+                (this.props.filters.type == project.type);
+
+
+            scopeFound =
+                this.props.filters.scope == "all" ||
+                (this.props.filters.scope == project.scope);
+
+            return visibilityFound && typeFound && scopeFound;
+        });
 
         return (
         <div className={portfolioStyles.projectsContainer}>
-            {searchFiltered.map((project, index) => (
+            {radioFiltered.map((project, index) => (
                 <div key={index} className={portfolioStyles.project}>
                     <h2 className={portfolioStyles.title}> {project.title} </h2> {/* TODO: make this open a JS popup of the project in question later */}
                     <p className={portfolioStyles.scope}> ({project.scope}) </p>

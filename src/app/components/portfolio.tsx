@@ -7,13 +7,23 @@ import portfolioStyles from "../../../styles/portfolio.module.css";
 
 interface PortfolioState {
     searchQuery: string;
+    filters: {
+        visibility: string;
+        type: string;
+        scope: string;
+    }
 }
 
 class Portfolio extends Component<{}, PortfolioState> {
     constructor(props: {}) {
         super(props);
         this.state = {
-        searchQuery: ""
+            searchQuery: "",
+            filters: {
+                visibility: "all",
+                type: "all",
+                scope: "all"
+            }
         }
     }
 
@@ -21,24 +31,33 @@ class Portfolio extends Component<{}, PortfolioState> {
         this.setState({ searchQuery: event.target.value });
     };
 
+    handleFilterChange = (filterName: string, value: string) => {
+        this.setState((prevState) => ({
+            filters: {
+                ...prevState.filters,
+                [filterName]: value
+            }
+        }));
+    }
+
     render(): React.ReactNode {
         return(    
-        <div>
-            <label htmlFor={portfolioStyles.search}> Search: </label>
-            
-            <input 
-            type="search" 
-            name="search"
-            id={portfolioStyles.search}
-            maxLength={30}
-            value={this.state.searchQuery}
-            onChange={this.handleSearchInputChange}
-            />
+            <div>
+                <label htmlFor={portfolioStyles.search}> Search: </label>
+                
+                <input 
+                    type="search"
+                    name="search"
+                    id={portfolioStyles.search}
+                    maxLength={30}
+                    value={this.state.searchQuery}
+                    onChange={this.handleSearchInputChange}
+                />
 
-            <FiltersTable/>
+                <FiltersTable onFilterChange={this.handleFilterChange}/>
 
-            <Projects searchQuery={this.state.searchQuery}/>
-        </div>
+                <Projects searchQuery={this.state.searchQuery} filters={this.state.filters}/>
+            </div>
         )
     }
 }

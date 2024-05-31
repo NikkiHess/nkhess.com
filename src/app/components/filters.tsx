@@ -10,16 +10,18 @@ type Option = {
   };
 
 type RadioGroupProps = {
-    name: string;
-    options: Option[];
-    defaultValue: string;
-  };
+  name: string;
+  options: Option[];
+  defaultValue: string;
+  onChange: (value: string) => void;
+};
 
-const RadioGroup: React.FC<RadioGroupProps> = ({ name, options, defaultValue }) => {
+const RadioGroup: React.FC<RadioGroupProps> = ({ name, options, defaultValue, onChange }) => {
     const [value, setValue] = useState(defaultValue);
   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.target.value);
+      onChange(event.target.value);
     }
   
     return (
@@ -42,7 +44,15 @@ const RadioGroup: React.FC<RadioGroupProps> = ({ name, options, defaultValue }) 
     );
   };
 
-const FiltersTable: React.FC = () => {
+interface FiltersTableProps {
+  onFilterChange: (filterName: string, value: string) => void;
+}
+
+const FiltersTable: React.FC<FiltersTableProps> = ({ onFilterChange }) => {
+    const handleFilterChange = (filterName: string, value: string) => {
+      onFilterChange(filterName, value);
+    }
+
     const visibilityOpts = [
         { label: "All", value: "all" },
         { label: "Public", value: "public" },
@@ -73,9 +83,9 @@ const FiltersTable: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <RadioGroup name="visibility" options={visibilityOpts} defaultValue="all"/>
-              <RadioGroup name="type" options={typeOpts} defaultValue="all"/>
-              <RadioGroup name="scope" options={scopeOpts} defaultValue="all"/>
+              <RadioGroup name="visibility" options={visibilityOpts} defaultValue="all" onChange={(value) => handleFilterChange("visibility", value)}/>
+              <RadioGroup name="type" options={typeOpts} defaultValue="all" onChange={(value) => handleFilterChange("type", value)}/>
+              <RadioGroup name="scope" options={scopeOpts} defaultValue="all" onChange={(value) => handleFilterChange("scope", value)}/>
             </tr>
           </tbody>
         </table>
