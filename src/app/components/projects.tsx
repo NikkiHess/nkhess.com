@@ -3,29 +3,8 @@
 import React, {Component} from "react";
 import portfolioStyles from "../../../styles/portfolio.module.css";
 
-interface Project {
-    organization: string;
-    organizationLink: string;
-    title: string;
-    github: string;
-    shortDescription: string;
-    longDescription: string;
-    technologies: string[];
-    isPublic: boolean;
-    type: string;
-    scope: string;
-    video: string;
-    screenshots: string[];
-    startDate: string;
-    endDate: string;
-}
-
-interface ProjectsState {
-    projects: Project[];
-}
-
 function dateToNumber(dateStr: string): number {
-    if(dateStr == "") return 999999999999999;
+    if(dateStr == "") return 999999999999999; // this is ugly
     const date = new Date(dateStr);
     return date.getTime();
 }
@@ -48,8 +27,33 @@ function projectTitleComparator(project1: Project, project2: Project): number {
     return project1.title.localeCompare(project2.title);
 }
 
-class Projects extends Component<{}, ProjectsState> {
-    constructor(props: {}) {
+interface Project {
+    organization: string;
+    organizationLink: string;
+    title: string;
+    github: string;
+    shortDescription: string;
+    longDescription: string;
+    technologies: string[];
+    isPublic: boolean;
+    type: string;
+    scope: string;
+    video: string;
+    screenshots: string[];
+    startDate: string;
+    endDate: string;
+}
+
+interface ProjectsProps {
+    searchQuery: string;
+}
+
+interface ProjectsState {
+    projects: Project[];
+}
+
+class Projects extends Component<ProjectsProps, ProjectsState> {
+    constructor(props: ProjectsProps) {
         super(props);
         this.state = {
             projects: [],
@@ -67,12 +71,33 @@ class Projects extends Component<{}, ProjectsState> {
 
     render(): React.ReactNode {
         const {projects} = this.state;
+        const {searchQuery} = this.props;
         
+        // sort by
         projects.sort(projectDateComparator);
+        
+        // filters for searched title, short desc, and technologies
+        const searchFiltered = projects.filter(project => {
+            const searchLower = searchQuery.toLowerCase();
+            let techFound = false;
+
+            // search technology substrings
+            project.technologies.forEach(technology => {
+                const lower = technology.toLowerCase();
+
+                if(lower.includes(searchLower)) {
+                    techFound = true;
+                }
+            });
+
+            return project.title.toLowerCase().includes(searchLower) 
+                    || project.shortDescription.toLowerCase().includes(searchLower) 
+                    || techFound;
+        })
 
         return (
         <div className={portfolioStyles.projectsContainer}>
-            {projects.map((project, index) => (
+            {searchFiltered.map((project, index) => (
                 <div key={index} className={portfolioStyles.project}>
                     <h2 className={portfolioStyles.title}> {project.title} </h2> {/* TODO: make this open a JS popup of the project in question later */}
                     <p className={portfolioStyles.scope}> ({project.scope}) </p>

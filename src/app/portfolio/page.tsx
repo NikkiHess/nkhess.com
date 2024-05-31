@@ -1,21 +1,16 @@
+import React from "react";
 import type { Metadata } from "next";
-import FiltersTable from "../components/filters";
-import Projects from "../components/projects";
-import portfolioStyles from "../../../styles/portfolio.module.css";
+import Portfolio from "../components/portfolio";
 
 export const metadata: Metadata = {
     title: "Portfolio - Nikki Hess",
     description: "Nikki Hess's projects",
 }
 
-const Home = () => (
-  <div>
-    <label id={portfolioStyles.search}> Search: <input type="search" name="search" maxLength={30}></input></label>
+const PortfolioPage: React.FC<{}> = () => {
+  return(
+    <Portfolio/>
+  )
+}
 
-    <FiltersTable/>
-
-    <Projects/>
-  </div>
-);
-
-export default Home;
+export default PortfolioPage;
