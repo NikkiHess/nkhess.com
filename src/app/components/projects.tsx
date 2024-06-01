@@ -27,6 +27,16 @@ function projectTitleComparator(project1: Project, project2: Project): number {
     return project1.title.localeCompare(project2.title);
 }
 
+// format scope for display purposes
+function formatScope(scope: string) {
+    var out = scope.charAt(0).toUpperCase() + scope.slice(1);
+    if(out.includes("-")) {
+        let index = out.indexOf("-") + 1;
+        out = out.slice(0, index) + scope.charAt(index).toUpperCase() + scope.slice(index + 1);
+    }
+    return out.replaceAll("-", " ");
+}
+
 interface Project {
     organization: string;
     organizationLink: string;
@@ -127,7 +137,7 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
             {radioFiltered.map((project, index) => (
                 <div key={index} className={portfolioStyles.project}>
                     <h2 className={portfolioStyles.title}> {project.title} </h2> {/* TODO: make this open a JS popup of the project in question later */}
-                    <p className={portfolioStyles.scope}> ({project.scope}) </p>
+                    <p className={portfolioStyles.scope}> ({ formatScope(project.scope) }) </p>
                     <b/>
                     <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
                     <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
