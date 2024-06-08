@@ -1,7 +1,6 @@
 "use client"; // mark as a client component
 
 import React, { useState } from "react";
-import commonStyles from "../../../styles/common.module.css";
 import portfolioStyles from "../../../styles/portfolio.module.css";
 
 type Option = {

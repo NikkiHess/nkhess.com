@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Latex } from '@onedoc/react-print';
 import Resume from "../components/resume"
 
 export const metadata: Metadata = {

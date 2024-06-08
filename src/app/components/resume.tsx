@@ -1,9 +1,7 @@
 "use client";
 
 import React, { Component } from "react";
-
 import { Document, Page } from "react-pdf";
-
 import resumeStyles from "../../../styles/resume.module.css";
 
 class Resume extends Component<{}, { width: number, imageData: any }> {

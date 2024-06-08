@@ -1,5 +1,6 @@
 import React from 'react';
 import navStyles from '../../../styles/nav.module.css'
+import Image from "next/image";
 
 const NavItem: React.FC<{ name: string; link: string; }> = ({
     name, link
@@ -19,7 +20,7 @@ const SocialItem: React.FC<{ name: string; link: string; imgSrc: string; hoverIm
     return(
         <li className={navStyles.socialItem}>
             <a href={link} className={navStyles.imgContainer}>
-                <img src={imgSrc} alt={name}></img>
+                <Image src={imgSrc} alt={name}></Image>
             </a>
         </li>
     )
@@ -30,7 +31,7 @@ const Nav: React.FC = () => {
     <ul id={navStyles.nav}>
         <li id={navStyles.navHome}>
             <a href={"/"}>
-                <img src='images/logo.png' alt='Site Logo' id={navStyles.logo}></img>
+                <Image src='images/logo.png' alt='Site Logo' id={navStyles.logo}></Image>
             </a>
         </li>
         <NavItem name="Portfolio" link="/portfolio"></NavItem>
