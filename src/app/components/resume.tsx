@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Component } from "react";
-import { Document, Page } from "react-pdf";
+import { Document, Page, pdfjs } from "react-pdf";
 import resumeStyles from "../../../styles/resume.module.css";
 
 class Resume extends Component<{}, { width: number, imageData: any }> {
@@ -9,6 +9,10 @@ class Resume extends Component<{}, { width: number, imageData: any }> {
         super(props);
         this.state = { width: 0, imageData: null };
         
+        pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+            'pdfjs-dist/build/pdf.worker.min.mjs',
+            import.meta.url,
+        ).toString();
     }
 
     componentDidMount () {

@@ -20,7 +20,7 @@ const SocialItem: React.FC<{ name: string; link: string; imgSrc: string; hoverIm
     return(
         <li className={navStyles.socialItem}>
             <a href={link} className={navStyles.imgContainer}>
-                <Image src={imgSrc} alt={name}></Image>
+                <img src={imgSrc} alt={name}></img>
             </a>
         </li>
     )
@@ -31,7 +31,7 @@ const Nav: React.FC = () => {
     <ul id={navStyles.nav}>
         <li id={navStyles.navHome}>
             <a href={"/"}>
-                <Image src='images/logo.png' alt='Site Logo' id={navStyles.logo}></Image>
+                <img src='images/logo.png' alt='Site Logo' id={navStyles.logo}></img>
             </a>
         </li>
         <NavItem name="Portfolio" link="/portfolio"></NavItem>

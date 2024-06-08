@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import commonStyles from '../../styles/common.module.css'
 import indexStyles from '../../styles/index.module.css'
-import Image from "next/image"
 
 export const metadata: Metadata = {
   title: 'Home - Nikki Hess',
@@ -14,7 +13,7 @@ const Home = () => (
   <div id={indexStyles.homeContainer}>
     <div id={indexStyles.innerHome}>
       <div id={indexStyles.imgContainer}>
-        <Image src='images/christmas-small.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki}></Image>
+        <img src='images/christmas-small.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki}></img>
         <div id={indexStyles.topLeftStar}>★</div>
         <div id={indexStyles.bottomRightStar}>★</div>
       </div>
