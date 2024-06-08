@@ -10,7 +10,7 @@ class Resume extends Component<{}, { width: number, imageData: any }> {
         this.state = { width: 0, imageData: null };
         
         pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-            'pdfjs-dist/build/pdf.worker.min.mjs',
+            'pdfjs-dist/legacy/build/pdf.worker.min.mjs',
             import.meta.url,
         ).toString();
     }
@@ -33,9 +33,11 @@ class Resume extends Component<{}, { width: number, imageData: any }> {
         const height = width * (11 / 8.5);
 
         return (
-            <Document file="/documents/resume.pdf" className={resumeStyles.document}>
-                <Page pageNumber={1} width={width} height={height} renderTextLayer={false} renderAnnotationLayer={false} className={resumeStyles.page}/>
-            </Document>
+            <div>
+                <Document file="/documents/resume.pdf" className={resumeStyles.document}>
+                    <Page pageNumber={1} width={width} height={height} renderTextLayer={false} renderAnnotationLayer={false} className={resumeStyles.page}/>
+                </Document>
+            </div>
         );
     }
 };

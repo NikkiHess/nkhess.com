@@ -36,7 +36,7 @@
         "organizationLink": "",
         "title": "Creaturesque",
         "github": "https://github.com/NikkiHess/Creaturesque",
-        "shortDescription": "A work-in-progress party game inspired by Jackbox Games. Plaers draw wacky creatures based on shuffled description cards!",
+        "shortDescription": "A work-in-progress party game inspired by Jackbox Games. Players draw wacky creatures based on shuffled description cards!",
         "longDescription": "TODO",
         "technologies": ["Unity"],
         "isPublic": true,

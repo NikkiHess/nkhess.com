@@ -1,6 +1,6 @@
 {
   "name": "nikkihess.github.io",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,7 +13,6 @@
   "homepage": "https://nikkihess.github.io/",
   "dependencies": {
     "@onedoc/react-print": "^0.1.133",
-    "katex": "^0.16.10",
     "next": "^14.2.3",
     "pdfjs-dist": "^4.3.136",
     "react": "^18",
