@@ -38,7 +38,7 @@ const Home = () => (
       </div>
     </div>
 
-    <iframe frameBorder="0" src="https://itch.io/embed/2997908" width="552" height="167"><a href="https://thikkitv.itch.io/legend-of-zelda-clone">Legend of Zelda Clone by ThikkiTV</a></iframe>
+    <iframe src="https://itch.io/embed/2997908" width="552" height="167"><a href="https://thikkitv.itch.io/legend-of-zelda-clone">Legend of Zelda Clone by ThikkiTV</a></iframe>
   </div>
 );
 
