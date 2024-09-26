@@ -36,9 +36,12 @@ const Home = () => (
           </li>
         </ul>
       </div>
-    </div>
 
-    <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/2997908" width="552" height="167"><a href="https://thikkitv.itch.io/legend-of-zelda-clone">Legend of Zelda Clone by ThikkiTV</a></iframe>
+      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/2997908" width="552" height="167">
+        <a href="https://thikkitv.itch.io/legend-of-zelda-clone">Legend of Zelda Clone by ThikkiTV</a>
+      </iframe>
+
+    </div>
   </div>
 );
 
