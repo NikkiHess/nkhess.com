@@ -9,7 +9,7 @@ class Resume extends Component<{}, { width: number, imageData: any }> {
         super(props);
         this.state = { width: 0, imageData: null };
         
-        pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+        pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
     }
 
     componentDidMount () {
