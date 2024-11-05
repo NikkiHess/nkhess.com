@@ -9,3 +9,14 @@
     z-index: -1;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
+
+#resume {
+    display: block;
+    margin: 0 auto; /* center horizontally */
+    z-index: -1;
+    
+    height: 90vh;
+    width: auto;
+
+    cursor: zoom-in;
+}

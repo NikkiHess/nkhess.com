@@ -43,16 +43,18 @@ class Portfolio extends Component<{}, PortfolioState> {
     render(): React.ReactNode {
         return(    
             <div>
-                <label htmlFor={portfolioStyles.search}> Search: </label>
-                
-                <input 
-                    type="search"
-                    name="search"
-                    id={portfolioStyles.search}
-                    maxLength={30}
-                    value={this.state.searchQuery}
-                    onChange={this.handleSearchInputChange}
-                />
+                <div className={portfolioStyles.searchDiv}>
+                    <label htmlFor={portfolioStyles.search} className={portfolioStyles.searchLabel}> Search </label>
+                    
+                    <input 
+                        type="search"
+                        name="search"
+                        id={portfolioStyles.search}
+                        maxLength={30}
+                        value={this.state.searchQuery}
+                        onChange={this.handleSearchInputChange}
+                    />
+                </div>
 
                 <FiltersTable onFilterChange={this.handleFilterChange}/>
 

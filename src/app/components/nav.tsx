@@ -20,7 +20,8 @@ const SocialItem: React.FC<{ name: string; link: string; imgSrc: string; hoverIm
     return(
         <li className={navStyles.socialItem}>
             <a href={link} className={navStyles.imgContainer}>
-                <img src={imgSrc} alt={name}></img>
+                <img src={imgSrc} alt={name} className={navStyles.socialImg} />
+                <img src={hoverImgSrc} alt={name} className={`${navStyles.socialImg} ${navStyles.hoverImg}`} />
             </a>
         </li>
     )
@@ -31,16 +32,17 @@ const Nav: React.FC = () => {
     <ul id={navStyles.nav}>
         <li id={navStyles.navHome}>
             <a href={"/"}>
-                <img src='images/logo.png' alt='Site Logo' id={navStyles.logo}></img>
+                <img src='images/logo.png' alt='Site Logo' id={navStyles.logo} />
             </a>
         </li>
+        
         <NavItem name="Portfolio" link="/portfolio"></NavItem>
         <NavItem name="Resume" link="/resume"></NavItem>
         <SocialItem name="GitHub" link="https://github.com/nikkihess" 
-                    imgSrc="images/social/GitHub.png" hoverImgSrc="images/socials/GitHub-hover.png">
+                    imgSrc="images/social/GitHub.png" hoverImgSrc="images/social/GitHub-hover.png">
         </SocialItem>
         <SocialItem name="LinkedIn" link="https://linkedin.com/in/thenikkihess" 
-                    imgSrc="images/social/LinkedIn.png" hoverImgSrc="images/socials/LinkedIn-hover.png">
+                    imgSrc="images/social/LinkedIn.png" hoverImgSrc="images/social/LinkedIn-hover.png">
         </SocialItem>
     </ul>
     );

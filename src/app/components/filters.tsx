@@ -72,6 +72,7 @@ const FiltersTable: React.FC<FiltersTableProps> = ({ onFilterChange }) => {
     ];
 
     return (
+      <div id={portfolioStyles.filtersContainer}>
         <table id={portfolioStyles.filters}>
           <thead>
             <tr>
@@ -88,6 +89,7 @@ const FiltersTable: React.FC<FiltersTableProps> = ({ onFilterChange }) => {
             </tr>
           </tbody>
         </table>
+      </div>
     )
 }
 

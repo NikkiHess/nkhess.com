@@ -59,6 +59,27 @@
     float: right;
 }
 
+.socialItem img {
+    display: block;
+}
+
+.imgContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.hoverImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.imgContainer:hover .hoverImg {
+    opacity: 1;
+}
+
 /* Nav Responseiveness */
 @media screen and (min-width: 466px) {
     #logo {

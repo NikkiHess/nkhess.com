@@ -1,42 +1,32 @@
 "use client";
 
-import React, { Component } from "react";
-import { Document, Page, pdfjs } from "react-pdf";
+import React, { Component, useRef, useState, useEffect } from "react";
 import resumeStyles from "../../../styles/resume.module.css";
 
-class Resume extends Component<{}, { width: number, imageData: any }> {
-    constructor(props: any) {
-        super(props);
-        this.state = { width: 0, imageData: null };
+const Resume: React.FC = () => {
+    var zoomed = false;
+
+    useEffect(() => {
+
+        const handleClick = (event: MouseEvent) => {
+            zoomed = !zoomed;
+            if(zoomed) {
+                
+            }
+        }
+
+        window.addEventListener("click", handleClick);
         
-        pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
-    }
+        return () => {
+            window.removeEventListener("wheel", handleClick);
+        }
+    }, []);
 
-    componentDidMount () {
-        this.setDivSize();
-        window.addEventListener("resize", this.setDivSize);
-    }
-
-    componentWillUnmount () {
-        window.removeEventListener("resize", this.setDivSize)
-    }
-    
-    setDivSize = () => {
-        this.setState({ width: window.innerWidth })
-    }
-
-    render() {
-        const width = this.state.width * .5;
-        const height = width * (11 / 8.5);
-
-        return (
-            <div>
-                <Document file="/documents/resume.pdf" className={resumeStyles.document}>
-                    <Page pageNumber={1} width={width} height={height} renderTextLayer={false} renderAnnotationLayer={false} className={resumeStyles.page}/>
-                </Document>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <img src="/documents/resume.png" id={resumeStyles.resume} ></img>
+        </div>
+    );
 };
 
 export default Resume;

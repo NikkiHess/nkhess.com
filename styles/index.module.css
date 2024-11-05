@@ -12,6 +12,7 @@
     position: relative;
 
     transition: all 0.5s ease-in, all 0.2s ease-out;
+    z-index: -1;
 }
 
 #about {

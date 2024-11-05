@@ -42,9 +42,8 @@ const Home = () => (
       </iframe>
 
       <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/3037809?bg_color=000000&amp;fg_color=ffffff&amp;link_color=049e00" width="552" height="167">
-      <a href="https://thikkitv.itch.io/hopper">Hopper by ThikkiTV</a>
+        <a href="https://thikkitv.itch.io/hopper">Hopper by ThikkiTV</a>
       </iframe>
-
     </div>
   </div>
 );
