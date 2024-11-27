@@ -37,12 +37,16 @@ const Home = () => (
         </ul>
       </div>
 
-      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/2997908" width="552" height="167">
-        <a href="https://thikkitv.itch.io/legend-of-zelda-clone">Legend of Zelda Clone by ThikkiTV</a>
+      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/2997908?border_width=0&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=4492c9&amp;border_color=000000" width="550" height="165">
+        <a href="https://thikkitv.itch.io/legend-of-zelda-clone">
+        Legend of Zelda Clone by ThikkiTV
+        </a>
       </iframe>
 
-      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/3037809?bg_color=000000&amp;fg_color=ffffff&amp;link_color=049e00" width="552" height="167">
-        <a href="https://thikkitv.itch.io/hopper">Hopper by ThikkiTV</a>
+      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/3037809?linkback=true&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=23b14d&amp;border_color=ffffff" width="552" height="167">
+        <a href="https://thikkitv.itch.io/hopper">
+        Hopper by ThikkiTV
+        </a>
       </iframe>
     </div>
   </div>
