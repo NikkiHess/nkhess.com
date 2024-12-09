@@ -182,7 +182,7 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                         </div>
                     )}
 
-                    <button onClick={this.closeModal}>Close</button>
+                    <button onClick={this.closeProjectModal}>Close</button>
                 </div>
             </div>
         )}
