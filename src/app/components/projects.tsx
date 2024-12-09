@@ -179,14 +179,14 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
                     <p className={portfolioStyles.longDesc}>{this.state.selectedProject.longDescription}</p>
 
-                    {this.state.selectedProject.video && ({project.video && (
+                    {this.state.selectedProject.video && (
                         <iframe
-                            src={project.video}
+                            src={this.state.selectedProject.video}
                             allowFullScreen
                             loading="lazy"
                             className={portfolioStyles.video}
                         ></iframe>
-                    )})}
+                    )}
 
                     {/* Display screenshots if any */}
                     {this.state.selectedProject.screenshots && this.state.selectedProject.screenshots.length > 0 && (
