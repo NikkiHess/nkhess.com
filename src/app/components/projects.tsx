@@ -147,7 +147,7 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
         <div className={portfolioStyles.projectsContainer}>
             {radioFiltered.map((project, index) => (
                 <div key={index} className={portfolioStyles.project}>
-                    <h2 className={portfolioStyles.title}> {project.title} </h2> {/* TODO: make this open a JS popup of the project in question later */}
+                    <h2 className={portfolioStyles.title}> {project.title} </h2>
                     <p className={portfolioStyles.scope}> ({ formatScope(project.scope) }) </p>
                     <b/>
                     <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
@@ -164,20 +164,35 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     )} */}
 
                     <button onClick={() => this.showProjectModal(project)}>Learn More</button>
+
+                    <img src={"images/projects/" + screenshot} alt={`${this.state.selectedProject?.title} screenshot ${idx+1}`} />
                 </div>
             ))}
 
         {this.state.selectedProject && (
-            <div className={portfolioStyles.modalOverlay}>
-                <div className={portfolioStyles.modalContent}>
-                    <h2>{this.state.selectedProject.title}</h2>
-                    <p>{this.state.selectedProject.longDescription}</p>
+            <div className={portfolioStyles.modalOverlay} onClick={this.closeProjectModal}>
+                <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
+                    <h2 className={portfolioStyles.title}> {project.title} </h2>
+                    <p className={portfolioStyles.scope}> ({ formatScope(project.scope) }) </p>
+                    <b/>
+                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
+                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
+                    <p className={portfolioStyles.longDesc}>{this.state.selectedProject.longDescription}</p>
+
+                    {this.state.selectedProject.video && ({project.video && (
+                        <iframe
+                            src={project.video}
+                            allowFullScreen
+                            loading="lazy"
+                            className={portfolioStyles.video}
+                        ></iframe>
+                    )})}
 
                     {/* Display screenshots if any */}
                     {this.state.selectedProject.screenshots && this.state.selectedProject.screenshots.length > 0 && (
                         <div className={portfolioStyles.screenshots}>
                             {this.state.selectedProject.screenshots.map((screenshot, idx) => (
-                                <img key={idx} src={screenshot} alt={`${this.state.selectedProject?.title} screenshot ${idx+1}`} />
+                                <img key={idx} src={"images/projects/" + screenshot} alt={`${this.state.selectedProject?.title} screenshot ${idx+1}`} />
                             ))}
                         </div>
                     )}
