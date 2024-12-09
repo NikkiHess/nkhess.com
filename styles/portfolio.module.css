@@ -80,7 +80,7 @@
     flex-direction: column;
     padding: 15px;
 
-    border: 2px solid white;
+    border: 3px solid white;
     background-color: #343438;
     border-radius: 25px;
 }
@@ -104,13 +104,14 @@
 }
 
 .project button {
-    background-color: #ed99a0;
+    background-color: #282829;
     border-color: black;
 
-    font-size: 1.2vh;
+    font-size: 20px;
+    font-weight: bold;
     border-radius: 15px;
 
-    justify-self: center baseline;
+    margin-top: auto; /* push button to the bottom of the div */
 }
 
 .modalOverlay {
@@ -129,12 +130,12 @@
 .modalContent {
     background-color: #343438;
     color: white;
-    border: 4px solid white;
+    border: 3px solid white;
 
     padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    width: 90%;
+    border-radius: 25px;
+    max-width: 800px;
+    width: 100%;
 }
 
 .screenshots img {
