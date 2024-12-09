@@ -106,6 +106,7 @@
 .project button {
     background-color: #282829;
     border-color: black;
+    color: white;
 
     font-size: 20px;
     font-weight: bold;
