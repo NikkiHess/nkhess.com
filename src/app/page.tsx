@@ -49,7 +49,7 @@ const Home = () => (
         </a>
       </iframe>
 
-      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/12205847?linkback=true&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=85e7ff&amp;border_color=ffffff"  width="750" height="200">
+      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/3166627?linkback=true&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=85e7ff&amp;border_color=ffffff"  width="750" height="200">
         <a href="https://pardio1.itch.io/the-box-dimension">
           Play The Box Dimension on itch.io
         </a>
