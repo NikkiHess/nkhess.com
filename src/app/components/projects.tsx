@@ -143,6 +143,8 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
             return visibilityFound && typeFound && scopeFound;
         });
 
+        const selectedProject = this.state.selectedProject;
+
         return (
         <div className={portfolioStyles.projectsContainer}>
             {radioFiltered.map((project, index) => (
@@ -171,19 +173,28 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                 </div>
             ))}
 
-        {this.state.selectedProject && (
+        {selectedProject && (
             <div className={portfolioStyles.modalOverlay} onClick={this.closeProjectModal}>
                 <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
-                    <h2 className={portfolioStyles.title}> {this.state.selectedProject.title} </h2>
-                    <p className={portfolioStyles.scope}> ({ formatScope(this.state.selectedProject.scope) }) </p>
+                    <h2 className={portfolioStyles.title}> {selectedProject.title} </h2>
+                    <p className={portfolioStyles.scope}> ({ formatScope(selectedProject.scope) }) </p>
                     <b/>
-                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{this.state.selectedProject.technologies.join(", ")} </p>
-                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {this.state.selectedProject.startDate} - {this.state.selectedProject.endDate != "" ? this.state.selectedProject.endDate : "Present"} </p>
-                    <p className={portfolioStyles.longDesc}>{this.state.selectedProject.longDescription}</p>
+                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{selectedProject.technologies.join(", ")} </p>
+                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {selectedProject.startDate} - {selectedProject.endDate != "" ? selectedProject.endDate : "Present"} </p>
+                    
+                    {/* either select longDesc or shortDesc, depending on availability */}
+                    {(selectedProject.longDescription !== "" && selectedProject.longDescription !== "TODO") ? (
+                        <p className={portfolioStyles.longDesc}>{selectedProject.longDescription}</p>
+                    ) : (
+                        <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
+                    )}
 
-                    {this.state.selectedProject.video && (
+
+                    <p><a href={selectedProject.github}> GitHub {selectedProject.isPublic ? "" : "(private)"} </a></p>
+
+                    {selectedProject.video && (
                         <iframe
-                            src={this.state.selectedProject.video}
+                            src={selectedProject.video}
                             allowFullScreen
                             loading="lazy"
                             className={portfolioStyles.video}
@@ -191,10 +202,10 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     )}
 
                     {/* Display screenshots if any */}
-                    {this.state.selectedProject.screenshots && this.state.selectedProject.screenshots.length > 0 && (
+                    {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
                         <div className={portfolioStyles.screenshots}>
-                            {this.state.selectedProject.screenshots.map((screenshot, idx) => (
-                                <img key={idx} src={"images/projects/" + screenshot} alt={`${this.state.selectedProject?.title} screenshot ${idx+1}`} />
+                            {selectedProject.screenshots.map((screenshot, idx) => (
+                                <img key={idx} src={"images/projects/" + screenshot} alt={`${selectedProject?.title} screenshot ${idx+1}`} />
                             ))}
                         </div>
                     )}
