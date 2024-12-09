@@ -165,18 +165,20 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
 
                     <button onClick={() => this.showProjectModal(project)}>Learn More</button>
 
-                    <img src={"images/projects/" + screenshot} alt={`${this.state.selectedProject?.title} screenshot ${idx+1}`} />
+                    {project.screenshots && project.screenshots.length > 0 && (
+                        <img src={"images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} />
+                    )}
                 </div>
             ))}
 
         {this.state.selectedProject && (
             <div className={portfolioStyles.modalOverlay} onClick={this.closeProjectModal}>
                 <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
-                    <h2 className={portfolioStyles.title}> {project.title} </h2>
-                    <p className={portfolioStyles.scope}> ({ formatScope(project.scope) }) </p>
+                    <h2 className={portfolioStyles.title}> {this.state.selectedProject.title} </h2>
+                    <p className={portfolioStyles.scope}> ({ formatScope(this.state.selectedProject.scope) }) </p>
                     <b/>
-                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
-                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
+                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{this.state.selectedProject.technologies.join(", ")} </p>
+                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {this.state.selectedProject.startDate} - {this.state.selectedProject.endDate != "" ? this.state.selectedProject.endDate : "Present"} </p>
                     <p className={portfolioStyles.longDesc}>{this.state.selectedProject.longDescription}</p>
 
                     {this.state.selectedProject.video && (

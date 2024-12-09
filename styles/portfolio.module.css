@@ -104,10 +104,13 @@
 }
 
 .project button {
-    font-size: 1.2vh;
-    border-radius: 15px;
     background-color: #ed99a0;
     border-color: black;
+
+    font-size: 1.2vh;
+    border-radius: 15px;
+
+    justify-self: center baseline;
 }
 
 .modalOverlay {
