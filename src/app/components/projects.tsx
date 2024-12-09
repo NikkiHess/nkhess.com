@@ -65,13 +65,15 @@ interface ProjectsProps {
 
 interface ProjectsState {
     projects: Project[];
+    selectedProject: Project | null;
 }
 
 class Projects extends Component<ProjectsProps, ProjectsState> {
     constructor(props: ProjectsProps) {
         super(props);
         this.state = {
-            projects: []
+            projects: [],
+            selectedProject: null
         };
     }
 
@@ -83,6 +85,15 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
             })
             .catch(error => console.error("Error fetching/parsing JSON: ", error))
     }
+
+    showProjectModal = (project: Project) => {
+        this.setState({ selectedProject: project });
+    };
+    
+    closeProjectModal = () => {
+        this.setState({ selectedProject: null });
+    };
+    
 
     render(): React.ReactNode {
         const {projects} = this.state;
@@ -142,18 +153,43 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
                     <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
                     <p className={portfolioStyles.shortDesc}> {project.shortDescription} </p>
-                    <p><a href={project.github}> GitHub {project.isPublic ? "" : "(private)"} </a></p>
-                    {project.video && (
+                    {/* <p><a href={project.github}> GitHub {project.isPublic ? "" : "(private)"} </a></p> */}
+                    {/* {project.video && (
                         <iframe
                             src={project.video}
                             allowFullScreen
                             loading="lazy"
                             className={portfolioStyles.video}
                         ></iframe>
-                    )}
+                    )} */}
+
+                    <button onClick={() => this.showProjectModal(project)}>Learn More</button>
                 </div>
             ))}
+
+        {this.state.selectedProject && (
+            <div className={portfolioStyles.modalOverlay}>
+                <div className={portfolioStyles.modalContent}>
+                    <h2>{this.state.selectedProject.title}</h2>
+                    <p>{this.state.selectedProject.longDescription}</p>
+
+                    {/* Display screenshots if any */}
+                    {this.state.selectedProject.screenshots && this.state.selectedProject.screenshots.length > 0 && (
+                        <div className={portfolioStyles.screenshots}>
+                            {this.state.selectedProject.screenshots.map((screenshot, idx) => (
+                                <img key={idx} src={screenshot} alt={`${this.state.selectedProject?.title} screenshot ${idx+1}`} />
+                            ))}
+                        </div>
+                    )}
+
+                    <button onClick={this.closeModal}>Close</button>
+                </div>
+            </div>
+        )}
+
         </div>
+
+
         );
     }
 }
