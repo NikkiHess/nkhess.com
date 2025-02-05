@@ -115,6 +115,12 @@
     margin-top: auto; /* push button to the bottom of the div */
 }
 
+.screenshot {
+    width: 100%;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
 .modalOverlay {
     position: fixed;
     top: 0;
@@ -125,6 +131,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto; /* scrolling */
     z-index: 9999; /* Make sure it's above other elements */
 }
 
@@ -137,6 +144,9 @@
     border-radius: 25px;
     max-width: 800px;
     width: 100%;
+
+    max-height: 95vh;
+    overflow-y: auto;
 }
 
 .screenshots img {
@@ -185,8 +195,11 @@
 }
 
 .video {
-    width: 100%;
+    display: block;
+    width: 70%;
     aspect-ratio: 16/9;
+
+    margin: 0 auto;
 }
 
 .custom-select select {
@@ -200,4 +213,9 @@
     outline: none;
     text-align: center;
     font-weight: bold;
+}
+
+.itch {
+    margin-top: -15px;
+    max-width: 160px;
 }

@@ -13,7 +13,7 @@ const Home = () => (
   <div id={indexStyles.homeContainer}>
     <div id={indexStyles.innerHome}>
       <div id={indexStyles.imgContainer}>
-        <img src='images/christmas-small.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki}></img>
+        <img src='images/selfie.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki}></img>
         <div id={indexStyles.topLeftStar}>★</div>
         <div id={indexStyles.bottomRightStar}>★</div>
       </div>
@@ -49,9 +49,9 @@ const Home = () => (
         </a>
       </iframe>
 
-      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/3166627?linkback=true&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=85e7ff&amp;border_color=ffffff"  width="600" height="200">
-        <a href="https://pardio1.itch.io/the-box-dimension">
-          Play The Box Dimension on itch.io
+      <iframe id={indexStyles.itchEmbed} src="https://itch.io/embed/3303145?linkback=true&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=00c2ff&amp;border_color=ffffff"  width="600" height="200">
+        <a href="https://thikkitv.itch.io/the-box-dimension">
+          The Box Dimension by ThikkiTV
         </a>
       </iframe>
     </div>

@@ -1,0 +1,35 @@
+.galleryContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    margin: 20px auto;
+  }
+  
+  .galleryArrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    padding: 0 10px;
+  }
+  
+  .screenshot {
+    max-width: 60%;
+    height: auto;
+    border: 2px solid white;
+    border-radius: 4px;
+  }
+  
+  .galleryIndicator {
+    position: absolute;
+    bottom: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  

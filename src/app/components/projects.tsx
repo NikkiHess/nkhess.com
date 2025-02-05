@@ -1,7 +1,10 @@
 "use client"; // mark as client component
 
 import React, {Component} from "react";
+import ScreenshotGallery from "../components/gallery";
+
 import portfolioStyles from "../../../styles/portfolio.module.css";
+import galleryStyles from "../../../styles/gallery.module.css";
 
 function dateToNumber(dateStr: string): number {
     if(dateStr == "") return 999999999999999; // this is ugly
@@ -42,6 +45,7 @@ interface Project {
     organizationLink: string;
     title: string;
     github: string;
+    itch: string;
     shortDescription: string;
     longDescription: string;
     technologies: string[];
@@ -87,10 +91,12 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
     }
 
     showProjectModal = (project: Project) => {
+        document.body.style.overflow = 'hidden';
         this.setState({ selectedProject: project });
     };
     
     closeProjectModal = () => {
+        document.body.style.overflow = '';
         this.setState({ selectedProject: null });
     };
     
@@ -155,21 +161,12 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
                     <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
                     <p className={portfolioStyles.shortDesc}> {project.shortDescription} </p>
-                    {/* <p><a href={project.github}> GitHub {project.isPublic ? "" : "(private)"} </a></p> */}
-                    {/* {project.video && (
-                        <iframe
-                            src={project.video}
-                            allowFullScreen
-                            loading="lazy"
-                            className={portfolioStyles.video}
-                        ></iframe>
-                    )} */}
-
-                    <button onClick={() => this.showProjectModal(project)}>Learn More</button>
 
                     {project.screenshots && project.screenshots.length > 0 && (
-                        <img src={"images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} />
+                        <img src={"images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} className={portfolioStyles.screenshot} />
                     )}
+
+                    <button onClick={() => this.showProjectModal(project)}>Learn More</button>
                 </div>
             ))}
 
@@ -189,8 +186,13 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                         <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
                     )}
 
-
                     <p><a href={selectedProject.github}> GitHub {selectedProject.isPublic ? "" : "(private)"} </a></p>
+                    
+                    {selectedProject.itch && selectedProject.itch != "" &&
+                    <a href={selectedProject.itch}>
+                        <img src={"images/itch.png"} alt="Available on itch.io" className={portfolioStyles.itch}/>
+                    </a>
+                    }
 
                     {selectedProject.video && (
                         <iframe
@@ -203,11 +205,10 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
 
                     {/* Display screenshots if any */}
                     {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
-                        <div className={portfolioStyles.screenshots}>
-                            {selectedProject.screenshots.map((screenshot, idx) => (
-                                <img key={idx} src={"images/projects/" + screenshot} alt={`${selectedProject?.title} screenshot ${idx+1}`} />
-                            ))}
-                        </div>
+                        <ScreenshotGallery
+                            screenshots={selectedProject.screenshots}
+                            projectTitle={selectedProject.title}
+                        />
                     )}
 
                     <button onClick={this.closeProjectModal}>Close</button>
