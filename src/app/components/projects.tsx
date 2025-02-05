@@ -65,13 +65,15 @@ interface ProjectsProps {
 
 interface ProjectsState {
     projects: Project[];
+    selectedProject: Project | null;
 }
 
 class Projects extends Component<ProjectsProps, ProjectsState> {
     constructor(props: ProjectsProps) {
         super(props);
         this.state = {
-            projects: []
+            projects: [],
+            selectedProject: null
         };
     }
 
@@ -83,6 +85,15 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
             })
             .catch(error => console.error("Error fetching/parsing JSON: ", error))
     }
+
+    showProjectModal = (project: Project) => {
+        this.setState({ selectedProject: project });
+    };
+    
+    closeProjectModal = () => {
+        this.setState({ selectedProject: null });
+    };
+    
 
     render(): React.ReactNode {
         const {projects} = this.state;
@@ -132,28 +143,81 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
             return visibilityFound && typeFound && scopeFound;
         });
 
+        const selectedProject = this.state.selectedProject;
+
         return (
         <div className={portfolioStyles.projectsContainer}>
             {radioFiltered.map((project, index) => (
                 <div key={index} className={portfolioStyles.project}>
-                    <h2 className={portfolioStyles.title}> {project.title} </h2> {/* TODO: make this open a JS popup of the project in question later */}
+                    <h2 className={portfolioStyles.title}> {project.title} </h2>
                     <p className={portfolioStyles.scope}> ({ formatScope(project.scope) }) </p>
                     <b/>
                     <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{project.technologies.join(", ")} </p>
                     <p className={portfolioStyles.projDetails}> <b>Dates: </b> {project.startDate} - {project.endDate != "" ? project.endDate : "Present"} </p>
                     <p className={portfolioStyles.shortDesc}> {project.shortDescription} </p>
-                    <p><a href={project.github}> GitHub {project.isPublic ? "" : "(private)"} </a></p>
-                    {project.video && (
+                    {/* <p><a href={project.github}> GitHub {project.isPublic ? "" : "(private)"} </a></p> */}
+                    {/* {project.video && (
                         <iframe
                             src={project.video}
                             allowFullScreen
                             loading="lazy"
                             className={portfolioStyles.video}
                         ></iframe>
+                    )} */}
+
+                    <button onClick={() => this.showProjectModal(project)}>Learn More</button>
+
+                    {project.screenshots && project.screenshots.length > 0 && (
+                        <img src={"images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} />
                     )}
                 </div>
             ))}
+
+        {selectedProject && (
+            <div className={portfolioStyles.modalOverlay} onClick={this.closeProjectModal}>
+                <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
+                    <h2 className={portfolioStyles.title}> {selectedProject.title} </h2>
+                    <p className={portfolioStyles.scope}> ({ formatScope(selectedProject.scope) }) </p>
+                    <b/>
+                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{selectedProject.technologies.join(", ")} </p>
+                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {selectedProject.startDate} - {selectedProject.endDate != "" ? selectedProject.endDate : "Present"} </p>
+                    
+                    {/* either select longDesc or shortDesc, depending on availability */}
+                    {(selectedProject.longDescription !== "" && selectedProject.longDescription !== "TODO") ? (
+                        <p className={portfolioStyles.longDesc}>{selectedProject.longDescription}</p>
+                    ) : (
+                        <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
+                    )}
+
+
+                    <p><a href={selectedProject.github}> GitHub {selectedProject.isPublic ? "" : "(private)"} </a></p>
+
+                    {selectedProject.video && (
+                        <iframe
+                            src={selectedProject.video}
+                            allowFullScreen
+                            loading="lazy"
+                            className={portfolioStyles.video}
+                        ></iframe>
+                    )}
+
+                    {/* Display screenshots if any */}
+                    {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+                        <div className={portfolioStyles.screenshots}>
+                            {selectedProject.screenshots.map((screenshot, idx) => (
+                                <img key={idx} src={"images/projects/" + screenshot} alt={`${selectedProject?.title} screenshot ${idx+1}`} />
+                            ))}
+                        </div>
+                    )}
+
+                    <button onClick={this.closeProjectModal}>Close</button>
+                </div>
+            </div>
+        )}
+
         </div>
+
+
         );
     }
 }

@@ -11,7 +11,7 @@
         "type": "software",
         "scope": "school",
         "video": "https://www.youtube.com/embed/BDLvKNS6NNk",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "1/19/2024",
         "endDate": ""
     },
@@ -27,7 +27,7 @@
         "type": "software",
         "scope": "open-source",
         "video": "https://www.youtube.com/embed/vqty41iXPjk",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "11/9/2023",
         "endDate": "12/31/2023"
     },
@@ -43,7 +43,7 @@
         "type": "game",
         "scope": "personal",
         "video": "https://www.youtube.com/embed/rRO9VowJiiM",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "11/25/2024",
         "endDate": ""
     },
@@ -59,7 +59,7 @@
         "type": "software",
         "scope": "personal",
         "video": "",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "5/27/2023",
         "endDate": "5/27/2023"
     },
@@ -75,7 +75,7 @@
         "type": "game",
         "scope": "school",
         "video": "https://www.youtube.com/embed/6EVJTkTtzyU",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "3/24/2023",
         "endDate": "4/17/2023"
     },
@@ -91,7 +91,7 @@
         "type": "game",
         "scope": "school",
         "video": "https://www.youtube.com/embed/9KGog6Udv2c",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "2/15/2023",
         "endDate": "3/12/2023"
     },
@@ -107,7 +107,7 @@
         "type": "game",
         "scope": "school",
         "video": "https://www.youtube.com/embed/a5ZkLF40U_g",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "1/20/2023",
         "endDate": "2/8/2023"
     },
@@ -123,7 +123,7 @@
         "type": "software",
         "scope": "school",
         "video": "",
-        "screenshots": [""],
+        "screenshots": [],
         "startDate": "10/4/2022",
         "endDate": "10/17/2022"
     },
