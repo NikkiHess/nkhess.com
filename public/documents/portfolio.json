@@ -167,7 +167,7 @@
         "title": "EECS 280 Euchre",
         "github": "https://github.com/NikkiHess/p3-euchre",
         "shortDescription": "A command-line game in which 4 players in 2 teams play Euchre. Humans and bots welcome.",
-        "longDescription": "EECS 280 Euchre is a command-line game in which 4 players divide into 2 teams to play a computer-simulated game of Euchre. Players 1 and 3 are partners, and players 2 and 4 are partners. There are 24 playing cards: 9, 10, Jack, Queen, King, and Ace of Spades, Hearts, Clubs, and Diamonds. See full rules here: https://eecs280staff.github.io/euchre/",
+        "longDescription": "EECS 280 Euchre is a command-line game in which 4 players divide into 2 teams to play a computer-simulated game of Euchre. Players 1 and 3 are partners, and players 2 and 4 are partners. There are 24 playing cards: 9, 10, Jack, Queen, King, and Ace of Spades, Hearts, Clubs, and Diamonds. See full rules [here](https://eecs280staff.github.io/euchre/)",
         "technologies": ["C++"],
         "isPublic": false,
         "type": "game",

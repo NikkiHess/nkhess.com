@@ -31,13 +31,17 @@ function projectTitleComparator(project1: Project, project2: Project): number {
 }
 
 // format scope for display purposes
-function formatScope(scope: string) {
+function formatScope(scope: string): string {
     var out = scope.charAt(0).toUpperCase() + scope.slice(1);
     if(out.includes("-")) {
         let index = out.indexOf("-") + 1;
         out = out.slice(0, index) + scope.charAt(index).toUpperCase() + scope.slice(index + 1);
     }
     return out.replaceAll("-", " ");
+}
+
+function handleLinkMarkdown(text: string): string {
+    return text.replace("\[.*\]\(.*\)", "");
 }
 
 interface Project {
@@ -181,7 +185,8 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     
                     {/* either select longDesc or shortDesc, depending on availability */}
                     {(selectedProject.longDescription !== "" && selectedProject.longDescription !== "TODO") ? (
-                        <p className={portfolioStyles.longDesc}>{selectedProject.longDescription}</p>
+                        <div
+                            dangerouslySetInnerHTML={{ __html: handleLinkMarkdown(selectedProject.longDescription)}}></div>
                     ) : (
                         <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
                     )}
