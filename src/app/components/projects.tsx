@@ -41,7 +41,10 @@ function formatScope(scope: string): string {
 }
 
 function handleLinkMarkdown(text: string): string {
-    return text.replace("\[.*\]\(.*\)", "");
+    const stripped_link = text.replace(/[\[]{1}.*[\]]{1}|[\(]{1}|[\)]{1}/g, "");
+    const stripped_text = text.replace(/[\[]{1}|[\]]{1}|[\(]{1}.*[\)]{1}/g, "");
+
+    return `<a href="${stripped_link}" target="_blank">${stripped_text}</a>`;
 }
 
 interface Project {
