@@ -44,7 +44,7 @@ function handleLinkMarkdown(text: string): string {
     const stripped_link = text.replace(/[\[]{1}.*[\]]{1}|[\(]{1}|[\)]{1}/g, "");
     const stripped_text = text.replace(/[\[]{1}|[\]]{1}|[\(]{1}.*[\)]{1}/g, "");
 
-    return `<a href="${stripped_link}" target="_blank">${stripped_text}</a>`;
+    return text.replace(/\[.*\]\(.*\)/g, `<a href="${stripped_link}" target="_blank">${stripped_text}</a>`);
 }
 
 interface Project {
