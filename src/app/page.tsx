@@ -13,7 +13,7 @@ const Home = () => (
   <div id={indexStyles.homeContainer}>
     <div id={indexStyles.innerHome}>
       <div id={indexStyles.imgContainer}>
-        <img src='images/selfie.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki}></img>
+        <img src='images/selfie.jpg' alt='A photo of Nikki' id={indexStyles.nikkiPikki}></img>
         <div id={indexStyles.topLeftStar}>★</div>
         <div id={indexStyles.bottomRightStar}>★</div>
       </div>
