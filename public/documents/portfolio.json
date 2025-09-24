@@ -172,8 +172,8 @@
         "isPublic": false,
         "type": "game",
         "scope": "school",
-        "video": "https://youtu.be/iY82h3hg7QY",
-        "screenshot": ["euchre/p3-euchre.png"],
+        "video": "https://www.youtube.com/embed/iY82h3hg7QY",
+        "screenshots": ["euchre/p3-euchre.png"],
         "startDate": "10/8/2020",
         "endDate": "10/17/2020"
     }
