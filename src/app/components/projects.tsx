@@ -180,46 +180,48 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
         {selectedProject && (
             <div className={portfolioStyles.modalOverlay} onClick={this.closeProjectModal}>
                 <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
-                    <h2 className={portfolioStyles.title}> {selectedProject.title} </h2>
-                    <p className={portfolioStyles.scope}> ({ formatScope(selectedProject.scope) }) </p>
-                    <b/>
-                    <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{selectedProject.technologies.join(", ")} </p>
-                    <p className={portfolioStyles.projDetails}> <b>Dates: </b> {selectedProject.startDate} - {selectedProject.endDate != "" ? selectedProject.endDate : "Present"} </p>
-                    
-                    {/* either select longDesc or shortDesc, depending on availability */}
-                    {(selectedProject.longDescription !== "" && selectedProject.longDescription !== "TODO") ? (
-                        <div
-                            dangerouslySetInnerHTML={{ __html: handleLinkMarkdown(selectedProject.longDescription)}}></div>
-                    ) : (
-                        <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
-                    )}
+                    <div className={portfolioStyles.modalScroll}>
+                        <h2 className={portfolioStyles.title}> {selectedProject.title} </h2>
+                        <p className={portfolioStyles.scope}> ({ formatScope(selectedProject.scope) }) </p>
+                        <b/>
+                        <p className={portfolioStyles.projDetails}> <b>Technologies: </b>{selectedProject.technologies.join(", ")} </p>
+                        <p className={portfolioStyles.projDetails}> <b>Dates: </b> {selectedProject.startDate} - {selectedProject.endDate != "" ? selectedProject.endDate : "Present"} </p>
+                        
+                        {/* either select longDesc or shortDesc, depending on availability */}
+                        {(selectedProject.longDescription !== "" && selectedProject.longDescription !== "TODO") ? (
+                            <div
+                                dangerouslySetInnerHTML={{ __html: handleLinkMarkdown(selectedProject.longDescription)}}></div>
+                        ) : (
+                            <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
+                        )}
 
-                    <p><a href={selectedProject.github}> GitHub {selectedProject.isPublic ? "" : "(private)"} </a></p>
-                    
-                    {selectedProject.itch && selectedProject.itch != "" &&
-                    <a href={selectedProject.itch}>
-                        <img src={"images/itch.png"} alt="Available on itch.io" className={portfolioStyles.itch}/>
-                    </a>
-                    }
+                        <p><a href={selectedProject.github}> GitHub {selectedProject.isPublic ? "" : "(private)"} </a></p>
+                        
+                        {selectedProject.itch && selectedProject.itch != "" &&
+                        <a href={selectedProject.itch}>
+                            <img src={"images/itch.png"} alt="Available on itch.io" className={portfolioStyles.itch}/>
+                        </a>
+                        }
 
-                    {selectedProject.video && (
-                        <iframe
-                            src={selectedProject.video}
-                            allowFullScreen
-                            loading="lazy"
-                            className={portfolioStyles.video}
-                        ></iframe>
-                    )}
+                        {selectedProject.video && (
+                            <iframe
+                                src={selectedProject.video}
+                                allowFullScreen
+                                loading="lazy"
+                                className={portfolioStyles.video}
+                            ></iframe>
+                        )}
 
-                    {/* Display screenshots if any */}
-                    {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
-                        <ScreenshotGallery
-                            screenshots={selectedProject.screenshots}
-                            projectTitle={selectedProject.title}
-                        />
-                    )}
+                        {/* Display screenshots if any */}
+                        {selectedProject.screenshots && selectedProject.screenshots.length > 0 && (
+                            <ScreenshotGallery
+                                screenshots={selectedProject.screenshots}
+                                projectTitle={selectedProject.title}
+                            />
+                        )}
 
-                    <button onClick={this.closeProjectModal}>Close</button>
+                        <button onClick={this.closeProjectModal}>Close</button>
+                    </div>
                 </div>
             </div>
         )}

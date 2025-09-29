@@ -1,6 +1,29 @@
 #bodyWrapper {
     padding-top: 80px;
     font-size: 18px;
+
+    /* custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #c0c0c0 #2e2e33;
+}
+
+#bodyWrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+#bodyWrapper::-webkit-scrollbar-track {
+    background-color: #2e2e33;
+    border-radius: 10px;
+}
+
+#bodyWrapper::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    border: 2px solid #2e2e33;
+}
+
+#bodyWrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #e0e0e0;
 }
 
 .video {

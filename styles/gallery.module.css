@@ -3,33 +3,60 @@
     align-items: center;
     justify-content: center;
     position: relative;
-
     margin: 20px auto;
-  }
-  
-  .galleryArrow {
-    background: none;
+    gap: 10px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.galleryArrow {
+    background-color: #45454c;
     border: none;
-    font-size: 2rem;
+    color: #f0f0f0;
+    font-size: 1.8rem;
+    padding: 8px 12px;
+    border-radius: 15px;
     cursor: pointer;
-    color: white;
-    padding: 0 10px;
-  }
-  
-  .screenshot {
-    max-width: 60%;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.galleryArrow:hover {
+    background-color: #5a5a63;
+}
+
+.screenshot {
+    max-width: 100%;
+    width: 60%;
     height: auto;
-    border: 2px solid white;
-    border-radius: 4px;
-  }
-  
-  .galleryIndicator {
+    border: 3px solid white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    object-fit: cover;
+}
+
+.galleryIndicator {
     position: absolute;
     bottom: 10px;
     font-size: 1rem;
-    color: white;
-    background-color: rgba(0,0,0,0.5);
-    padding: 5px 10px;
-    border-radius: 10px;
-  }
-  
+    color: #f0f0f0;
+    background-color: rgba(0,0,0,0.6);
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 9999;
+    overflow: hidden; /* no scroll on overlay itself */
+}

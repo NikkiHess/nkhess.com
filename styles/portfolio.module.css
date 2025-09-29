@@ -1,5 +1,8 @@
-#body-wrapper {
+#bodyWrapper {
     margin-top: 30px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: #ffffff;
+    background-color: #1c1c1c;
 }
 
 /* Search Filter */
@@ -7,83 +10,91 @@
     border-collapse: collapse;
     width: 100%;
     border: none;
-    font-size: 20px;
-
-    background-color: #343438;
+    font-size: 18px;
 }
 
 #filtersContainer {
     border: 3px solid white;
     border-radius: 20px;
     text-align: left;
-    width: 600px;
-
-    margin: 10px auto;
+    width: 650px;
+    margin: 20px auto;
     overflow: hidden;
+    padding: 15px;
+    background-color: rgb(44, 44, 47);;
+}
+
+#filters td:not(:last-child), #filters th:not(:last-child) {
+    border-right: 2px solid white;
 }
 
 #filters td, #filters th {
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    
-    padding-top: 5px;
-    padding-left: 5px;
+    border-left: none; /* remove left borders */
 }
+
 
 #filters td {
     vertical-align: text-top;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 #filters th {
     font-size: 18px;
-    line-height: 20px;
+    line-height: 22px;
     padding-left: 10px;
 }
 
 .searchLabel {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 22px;
     vertical-align: middle;
 }
 
 .searchDiv {
     display: block;
-    margin: 0px auto 20px auto;
+    margin: 0 auto 25px auto;
     text-align: center;
 }
 
 #search {
-    width: 250px;
-    height: 30px;
-    font-size: 20px;
+    width: 280px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 3px solid white;
+    padding: 5px 10px;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
 }
 
-/* TODO: Can we do this without !important? */
-.hidden {
-    display: none !important;
-}
-
+/* projects container */
 .projectsContainer {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: flex-start;
-
+    justify-content: center;
+    gap: 20px;
 }
 
-/* Responsive layout for projects, 1-2-3 tile */
+/* project cards */
 .project {
-    flex: 0 1 calc(100% - 1em);
-    margin: 1em auto;
+    flex: 0 1 calc(100% - 2em);
     display: flex;
     flex-direction: column;
-    padding: 15px;
-
+    padding: 20px;
     border: 3px solid white;
-    background-color: #343438;
+    background-color: rgb(44, 44, 47);
     border-radius: 25px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* subtle shadow */
+    z-index: 1;
 }
+
+.project:hover {
+    transform: translateY(-5px);
+    background-color: rgb(55, 55, 59);;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* stronger shadow on hover */
+}
+
 
 @media screen and (min-width: 901px) {
     .project {
@@ -104,118 +115,224 @@
 }
 
 .project button {
-    background-color: #282829;
+    background-color: #45454c;
     border-color: black;
-    color: white;
-
-    font-size: 20px;
+    color: #f0f0f0;
+    font-size: 18px;
     font-weight: bold;
     border-radius: 15px;
-
-    margin-top: auto; /* push button to the bottom of the div */
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.2s;
 }
 
+.project button:hover {
+    background-color: #5a5a63;
+}
+
+/* screenshots */
 .screenshot {
-    width: 100%;
-    margin-bottom: 10px;
-    vertical-align: middle;
+    width: 75%;
+    align-self: center;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    object-fit: cover;
 }
 
+/* modal */
 .modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.85);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow-y: auto; /* scrolling */
-    z-index: 9999; /* Make sure it's above other elements */
+    overflow-y: auto;
+    z-index: 9999;
+    padding: 20px;
 }
 
 .modalContent {
-    background-color: #343438;
-    color: white;
+    background-color: #2e2e33;
+    color: #f0f0f0;
     border: 3px solid white;
-
-    padding: 20px;
     border-radius: 25px;
-    max-width: 800px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* match project hover shadow */
+    padding: 25px 30px;
+    max-width: 850px;
     width: 100%;
-
-    max-height: 95vh;
+    max-height: 90vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.screenshots img {
-    max-width: 100%;
-    margin-bottom: 10px;
+.modalContent button {
+    align-self: flex-end;
+    background-color: #45454c;
+    border-color: black;
+    color: #f0f0f0;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s;
 }
 
+.modalContent button:hover {
+    background-color: #5a5a63;
+}
 
+.modalContent .title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: -30px;
+}
+
+.modalContent .scope {
+    font-size: 20px;
+    color: #c0c0c0;
+    margin-bottom: -10px;
+}
+
+.modalContent .projDetails {
+    font-size: 17px;
+    margin-bottom: -4px;
+}
+
+.modalContent .shortDesc, 
+.modalContent .longDesc {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: -20px;
+}
+
+.modalContent .screenshot, .modalContent .galleryContainer {
+    margin: 10px auto;
+}
+
+.modalContent {
+    background-color: #2e2e33;
+    color: #f0f0f0;
+    border: 3px solid white;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    padding: 0;
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* clip scrollbar to rounded edges */
+}
+
+.modalScroll {
+    padding: 25px 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #c0c0c0 #2e2e33;
+}
+
+.modalScroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modalScroll::-webkit-scrollbar-track {
+    background-color: #2e2e33;
+    border-radius: 10px;
+}
+
+.modalScroll::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    border: 2px solid #2e2e33;
+}
+
+.modalScroll::-webkit-scrollbar-thumb:hover {
+    background-color: #e0e0e0;
+}
+
+.video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin: 15px auto;
+    border-radius: 15px;
+}
+
+/* text */
 .title {
     display: inline;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: -15px;
 }
 
 .scope {
     display: inline;
     font-size: 16px;
-}
-
-/* fixes spacing issues */
-.title, .scope {
-    margin: 0;
-    padding: 0;
+    color: #c0c0c0;
 }
 
 .projDetails {
     font-size: 16px;
-    line-height: 16px;
-    margin-bottom: 0px;
-    margin-top: 10px;
+    line-height: 18px;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
-.shortDesc {
+.shortDesc, .longDesc {
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 8px;
 }
 
-.longDesc {
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 8px;
-}
-
-.custom-select {
-    position: relative;
-    display: inline-block;
-}
-
-.video {
-    display: block;
-    width: 70%;
-    aspect-ratio: 16/9;
-
-    margin: 0 auto;
-}
-
-.custom-select select {
-    appearance: none; /* Hide the original select for custom display */
-    padding: 8px 15px 8px 10px;
-    border: 1px solid #757579;
-    border-radius: 5px;
-    background-color: #4e4e50;
-    color: white;
-    cursor: pointer;
-    outline: none;
-    text-align: center;
-    font-weight: bold;
-}
-
+/* itch icon */
 .itch {
-    margin-top: -15px;
-    max-width: 160px;
+    margin-top: 5px;
+    max-width: 140px;
+}
+
+/* gallery */
+.galleryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.galleryArrow {
+    background-color: #45454c;
+    border: none;
+    color: #f0f0f0;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.galleryArrow:hover {
+    background-color: #5a5a63;
+}
+
+.galleryIndicator {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #c0c0c0;
 }
