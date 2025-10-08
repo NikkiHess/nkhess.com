@@ -23,16 +23,16 @@ const Home = () => (
       <div id={indexStyles.bulletContainer}>
         <ul id={indexStyles.bullets}>
           <li>
-            Senior at the <b>University of Michigan</b> studying computer science
+            Graduted from <b>University of Michigan</b> with a BS in Computer Science
           </li>
           <li>
             <b>Game Developer</b>
           </li>
           <li>
-            <b>Software Engineer</b>, focusing on backend
+            <b>IoT Software Engineer</b> at <b>University of Michigan</b>
           </li>
           <li>
-            Working on learning <b> Next.js </b>
+            Working on <b>a new game</b> called <b>Creaturesque!</b>
           </li>
         </ul>
       </div>
