@@ -32,7 +32,7 @@ const Home = () => (
             <b>IoT Software Engineer</b> at <b>University of Michigan</b>
           </li>
           <li>
-            Working on <b>a new game</b> called <b>Creaturesque!</b>
+            Working on <b>a new game</b> called <b>Creaturesque</b>
           </li>
         </ul>
       </div>
