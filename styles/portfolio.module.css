@@ -24,6 +24,7 @@
     /* responsive scaling */
     width: 90%;
     max-width: 800px;
+    min-width: 335px;
 }
 
 #filters td:not(:last-child), #filters th:not(:last-child) {
@@ -97,11 +98,11 @@
     box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* stronger shadow on hover */
 }
 
-@media screen and (min-width: 901px) {
+/* @media screen and (min-width: 901px) {
     .project {
-        /* flex: 0 1 calc(48% - 2em); */
+        flex: 0 1 calc(48% - 2em);
     }
-}
+} */
 
 @media screen and (min-width: 1200px) {
     .project {
