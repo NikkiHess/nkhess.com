@@ -1,5 +1,21 @@
 [ 
     {
+        "organization": "Personal",
+        "organizationLink": "",
+        "title": "Space Girl Bot (WIP)",
+        "github": "https://github.com/NikkiHess/space-girl-bot",
+        "shortDescription": "A WIP Discord bot built for general-purpose commands, with a specific focus on voice chat.",
+        "longDescription": "Space Girl Bot is shaping up to be the Discord bot I always dreamed of having in my server. So far the main focus of this project is accessibility for those who can't currently speak in a Discord call. The first goal I have is to implement a text-to-speech function that plays in the voice chat - so far I have gotten the text to speech working, but not quite the commands yet. Stay tuned for updates!",
+        "technologies": ["Python", "pycord", "Selenium"],
+        "isPublic": true,
+        "type": "software",
+        "scope": "personal",
+        "video": "",
+        "screenshots": [],
+        "startDate": "9/24/2025",
+        "endDate": ""
+    },
+    {
         "organization": "EECS 494",
         "organizationLink": "https://eecs494.com/",
         "title": "Hopper",
@@ -12,7 +28,7 @@
         "type": "game",
         "scope": "school",
         "video": "",
-        "screenshots": ["hopper/"],
+        "screenshots": [],
         "startDate": "9/3/2024",
         "endDate": "11/26/2024"
     },
@@ -80,22 +96,6 @@
         "screenshots": [],
         "startDate": "11/25/2024",
         "endDate": ""
-    },
-    {
-        "organization": "",
-        "organizationLink": "",
-        "title": "RGB Bot",
-        "github": "https://github.com/NikkiHess/RGBBot",
-        "shortDescription": "A simple Discord bot for colorful, per-user Discord roles.",
-        "longDescription": "TODO",
-        "technologies": ["Python", "pycord"],
-        "isPublic": true,
-        "type": "software",
-        "scope": "personal",
-        "video": "",
-        "screenshots": [],
-        "startDate": "5/27/2023",
-        "endDate": "5/27/2023"
     },
     {
         "organization": "EECS 440",
