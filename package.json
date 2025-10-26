@@ -14,7 +14,7 @@
   "dependencies": {
     "@onedoc/react-print": "^0.1.133",
     "@ungap/with-resolvers": "^0.1.0",
-    "next": "^14.2.3",
+    "next": "^14.2.33",
     "react": "^18",
     "react-dom": "^18",
     "react-pdf": "^8.0.2"

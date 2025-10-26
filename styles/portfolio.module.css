@@ -5,7 +5,6 @@
     background-color: #1c1c1c;
 }
 
-/* Search Filter */
 #filters {
     border-collapse: collapse;
     width: 100%;
@@ -17,11 +16,14 @@
     border: 3px solid white;
     border-radius: 20px;
     text-align: left;
-    width: 650px;
     margin: 20px auto;
     overflow: hidden;
     padding: 15px;
     background-color: rgb(44, 44, 47);;
+
+    /* responsive scaling */
+    width: 90%;
+    max-width: 800px;
 }
 
 #filters td:not(:last-child), #filters th:not(:last-child) {
@@ -95,10 +97,9 @@
     box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* stronger shadow on hover */
 }
 
-
 @media screen and (min-width: 901px) {
     .project {
-        flex: 0 1 calc(48% - 2em);
+        /* flex: 0 1 calc(48% - 2em); */
     }
 }
 
@@ -112,6 +113,7 @@
     .project {
         flex: 0 1 calc(23% - 2em);
     }
+
 }
 
 .project button {
