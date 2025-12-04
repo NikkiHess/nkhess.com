@@ -3,6 +3,15 @@ import Image from "next/image";
 import commonStyles from '../../styles/common.module.css';
 import indexStyles from '../../styles/index.module.css';
 
+const bulletDescription = [
+  "Graduated from University of Michigan with a BS in Computer Science",
+  "Game Developer",
+  "IT Support Specialist at University of Michigan",
+  "Working on a new game called Creaturesque"
+];
+
+const bulletString = bulletDescription.join("\n")
+
 export const metadata: Metadata = {
   title: "Home - Nikki Hess",
   description: "Nikki Hess's portfolio site homepage!",
@@ -10,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     title: "Nikki Hess's Portfolio",
-    description: "",
+    description: bulletString,
     url: "https://nkhess.com/",
     images: [
       {
@@ -37,18 +46,9 @@ const Home = () => (
       </p>
       <div id={indexStyles.bulletContainer}>
         <ul id={indexStyles.bullets}>
-          <li>
-            Graduted from <b>University of Michigan</b> with a BS in Computer Science
-          </li>
-          <li>
-            <b>Game Developer</b>
-          </li>
-          <li>
-            <b>IoT Software Engineer</b> at <b>University of Michigan</b>
-          </li>
-          <li>
-            Working on <b>a new game</b> called <b>Creaturesque</b>
-          </li>
+          {bulletDescription.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
         </ul>
       </div>
 
