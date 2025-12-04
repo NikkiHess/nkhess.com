@@ -1,6 +1,7 @@
 "use client"; // mark as client component
 
 import React, {Component} from "react";
+import Image from "next/image";
 import ScreenshotGallery from "../components/gallery";
 
 import portfolioStyles from "../../../styles/portfolio.module.css";
@@ -170,7 +171,7 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                     <p className={portfolioStyles.shortDesc}> {project.shortDescription} </p>
 
                     {project.screenshots && project.screenshots.length > 0 && (
-                        <img src={"images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} className={portfolioStyles.screenshot} />
+                        <img src={"/images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} className={portfolioStyles.screenshot}/>
                     )}
 
                     <button onClick={() => this.showProjectModal(project)}>Learn More</button>
