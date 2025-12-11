@@ -16,6 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Your deployment step here
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
       - name: Deploy to Vercel
         run: vercel --prod
