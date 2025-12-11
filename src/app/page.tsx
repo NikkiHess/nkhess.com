@@ -1,6 +1,40 @@
 import type { Metadata } from 'next';
 import indexStyles from '../../styles/index.module.css';
 
+/**
+ * Replaces **string** with <b>string</b>
+ * @param plainInput the input `string` to make bold
+ * @param unicode whether to convert to unicode, if false converts to HTML. defaults to false.
+ * @returns `string` — the handled string
+ */
+function handleBoldMarkdown(plainInput: string, unicode: boolean = false): string {
+  const boldRegex: RegExp = /(\*\*)(.*?)(\*\*)/g
+  const matches = [...plainInput.matchAll(boldRegex)];
+  
+  if(!unicode) {
+    matches.forEach(match => {
+      plainInput = plainInput.replace(match[0], "<b>" + match[2] + "</b>");
+    });
+  }
+  else { 
+    matches.forEach(match => {
+      // replace character by character within the match
+      const bolded: string = match[2].replace(/[a-zA-Z0-9]/g, c => {
+        const code = c.charCodeAt(0);
+        // A-Z → 𝗔–𝗭, a-z → 𝗮–𝗓, 0-9 → 𝟬–𝟵
+        if (c >= "A" && c <= "Z") return String.fromCodePoint(0x1d400 + (code - 65));
+        if (c >= "a" && c <= "z") return String.fromCodePoint(0x1d41a + (code - 97));
+        if (c >= "0" && c <= "9") return String.fromCodePoint(0x1d7ce + (code - 48));
+        return c;
+      });
+
+      plainInput = plainInput.replace(match[0], bolded);
+    });
+  }
+
+  return plainInput;
+}
+
 const bulletDescription = [
   "Graduated from **University of Michigan** with a **BS in Computer Science**",
   "Currently an **IT Support Specialist **at University of Michigan",
@@ -11,10 +45,10 @@ const bulletDescription = [
 // for the Discord embed
 const bulletedBulletDescription = bulletDescription.map((element, index) => {
   if(index % 2 == 0) { // even gets outline star
-    return "☆ " + element;
+    return "☆ " + handleBoldMarkdown(element, true);
   }
   else {
-    return "★ " + element;
+    return "★ " + handleBoldMarkdown(element, true);
   }
 });
 const bulletedBulletString = bulletedBulletDescription.join("\n")
@@ -36,22 +70,6 @@ export const metadata: Metadata = {
     ],
   },
   themeColor: '#ed99a0',
-}
-
-/**
- * Replaces **string** with <b>string</b>
- * @param bulletItem the item to make bold
- * @returns string — the handled string
- */
-function handleBoldMarkdown(bulletItem: string): string {
-  const boldRegex: RegExp = /(\*\*)(.*?)(\*\*)/g
-  const matches = [...bulletItem.matchAll(boldRegex)];
-  
-  matches.forEach(match => {
-    bulletItem = bulletItem.replace(match[0], "<b>" + match[2] + "</b>");
-  });
-
-  return bulletItem;
 }
 
 // TODO: Investigate weird glitch at width 465
