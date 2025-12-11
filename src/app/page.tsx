@@ -46,6 +46,7 @@ const bulletDescription = [
 const bulletedBulletDescription = bulletDescription.map((element, index) => {
   element = element.replaceAll("University of Michigan", "Umich");
   element = element.replaceAll("IT Support Specialist", "IT Specialist");
+  element = element.replaceAll("a new game", "a game");
   if(index % 2 == 0) { // even gets outline star
     return "☆ " + handleBoldMarkdown(element, true);
   }
