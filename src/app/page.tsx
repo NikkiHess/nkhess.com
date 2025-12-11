@@ -37,15 +37,15 @@ function handleBoldMarkdown(plainInput: string, unicode: boolean = false): strin
 
 const bulletDescription = [
   "Graduated from **University of Michigan** with a **BS in Computer Science**",
-  "Currently an **IT Support Specialist **at University of Michigan",
+  "Currently an **IT Support Specialist** at University of Michigan",
   "Hobbyist **Game Developer**",
   "Working on a new game called **Creaturesque**"
 ];
 
 // for the Discord embed
 const bulletedBulletDescription = bulletDescription.map((element, index) => {
-  if(element.includes("University of Michigan")) 
-    element = element.replaceAll("University of Michigan", "Umich")
+  element = element.replaceAll("University of Michigan", "Umich");
+  element = element.replaceAll("IT Support Specialist", "IT Specialist");
   if(index % 2 == 0) { // even gets outline star
     return "☆ " + handleBoldMarkdown(element, true);
   }
