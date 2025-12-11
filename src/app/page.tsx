@@ -45,7 +45,7 @@ export const metadata: Metadata = {
  */
 function handleBoldMarkdown(bulletItem: string): string {
   const boldRegex: RegExp = /(\*\*)(.*?)(\*\*)/g
-  const matches = bulletItem.matchAll(boldRegex);
+  const matches = [...bulletItem.matchAll(boldRegex)];
   
   matches.forEach(match => {
     bulletItem = bulletItem.replace(match[0], "<b>" + match[2] + "</b>");
