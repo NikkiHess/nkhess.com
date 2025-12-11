@@ -44,6 +44,8 @@ const bulletDescription = [
 
 // for the Discord embed
 const bulletedBulletDescription = bulletDescription.map((element, index) => {
+  if(element.includes("University of Michigan")) 
+    element = element.replaceAll("University of Michigan", "Umich")
   if(index % 2 == 0) { // even gets outline star
     return "☆ " + handleBoldMarkdown(element, true);
   }
