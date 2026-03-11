@@ -14,10 +14,11 @@
   "dependencies": {
     "@onedoc/react-print": "^0.1.133",
     "@ungap/with-resolvers": "^0.1.0",
-    "next": "^14.2.33",
+    "next": "^16.1.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-pdf": "^8.0.2"
+    "react-hook-form": "^7.71.2",
+    "react-pdf": "^10.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",

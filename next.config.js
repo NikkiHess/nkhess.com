@@ -5,6 +5,9 @@ const nextConfig = {
         
         return config;
     },
+    turbopack: {
+
+    },
     swcMinify: false, // this SAVES react-pdf
 }
 
