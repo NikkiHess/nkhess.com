@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import ScreenshotGallery from "../components/gallery";
+import { Filters } from "./portfolio";
 
 import portfolioStyles from "../../../styles/portfolio.module.css";
 
@@ -55,7 +56,7 @@ interface Project {
     shortDescription: string;
     longDescription: string;
     technologies: string[];
-    isPublic: boolean;
+    visibility: string;
     type: string;
     scope: string;
     video: string;
@@ -66,13 +67,8 @@ interface Project {
 
 interface ProjectsProps {
     searchQuery: string,
-    filters: {
-        visibility: string;
-        type: string;
-        scope: string;
-    }
+    filters: Filters
 }
-
 
 export default function Projects({ searchQuery, filters }: ProjectsProps) {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -112,20 +108,9 @@ export default function Projects({ searchQuery, filters }: ProjectsProps) {
                 project.organization.toLowerCase().includes(searchLower) ||
                 techFound;
 
-            let visibilityFound = false, typeFound = false, scopeFound = false;
-
-            visibilityFound = 
-                filters.visibility == "all" ||
-                (filters.visibility == "public" && project.isPublic) ||
-                (filters.visibility == "private" && !project.isPublic);
-
-            typeFound =
-                filters.type == "all" ||
-                (filters.type == project.type);
-
-            scopeFound =
-                filters.scope == "all" ||
-                (filters.scope == project.scope);
+            const visibilityFound = filters.visibility == "all" || filters.visibility == project.visibility;
+            const typeFound = filters.type == "all" || filters.type == project.type;
+            const scopeFound = filters.scope == "all" || filters.scope == project.scope;
 
             const matchesFilters = visibilityFound && typeFound && scopeFound;
 
@@ -172,7 +157,7 @@ export default function Projects({ searchQuery, filters }: ProjectsProps) {
                             <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
                         )}
 
-                        <p><a href={selectedProject.github}> GitHub {selectedProject.isPublic ? "" : "(private)"} </a></p>
+                        <p><a href={selectedProject.github}> GitHub {selectedProject.visibility == "public" ? "" : "(private)"} </a></p>
                         
                         {selectedProject.itch && selectedProject.itch != "" &&
                         <a href={selectedProject.itch}>

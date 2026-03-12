@@ -5,9 +5,18 @@ import FiltersTable from "../components/filters";
 import Projects from "../components/projects";
 import portfolioStyles from "../../../styles/portfolio.module.css";
 
+// DRY
+export const FILTER_KEYS = ["visibility", "type", "scope"] as const; // define keys
+export type FilterKey = typeof FILTER_KEYS[number]; // generate a type using those keys
+export type Filters = Record<FilterKey, String>; // generate the shape
+export const DEFAULT_FILTERS = FILTER_KEYS.reduce((acc, key) => {
+    acc[key] = "all";
+    return acc;
+}, {} as Filters);
+
 export default function Portfolio() {
     const [searchQuery, setQuery] = useState("");
-    const [filters, setFilters] = useState({visibility: "all", type: "all", scope: "all"});
+    const [filters, setFilters] = useState(DEFAULT_FILTERS);
 
     const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuery(event.target.value);
