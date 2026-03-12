@@ -77,14 +77,14 @@ export default function FiltersTable({ onFilterChange }: FiltersTableProps) {
         <table id={portfolioStyles.filters}>
           <thead>
             <tr>
-              <th>Visibility</th>
+              <th>Code Visibility</th>
               <th>Type</th>
               <th>Scope</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <RadioGroup name="visibility" options={visibilityOpts} defaultValue="all" onChange={(value) => handleFilterChange("visibility", value)}/>
+              <RadioGroup name="codeVisibility" options={visibilityOpts} defaultValue="all" onChange={(value) => handleFilterChange("codeVisibility", value)}/>
               <RadioGroup name="type" options={typeOpts} defaultValue="all" onChange={(value) => handleFilterChange("type", value)}/>
               <RadioGroup name="scope" options={scopeOpts} defaultValue="all" onChange={(value) => handleFilterChange("scope", value)}/>
             </tr>

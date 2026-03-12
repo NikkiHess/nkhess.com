@@ -6,7 +6,7 @@ import Projects from "../components/projects";
 import portfolioStyles from "../../../styles/portfolio.module.css";
 
 // DRY
-export const FILTER_KEYS = ["visibility", "type", "scope"] as const; // define keys
+export const FILTER_KEYS = ["codeVisibility", "type", "scope"] as const; // define keys
 export type FilterKey = typeof FILTER_KEYS[number]; // generate a type using those keys
 export type Filters = Record<FilterKey, String>; // generate the shape
 export const DEFAULT_FILTERS = FILTER_KEYS.reduce((acc, key) => {

@@ -56,7 +56,7 @@ interface Project {
     shortDescription: string;
     longDescription: string;
     technologies: string[];
-    visibility: string;
+    codeVisibility: string;
     type: string;
     scope: string;
     video: string;
@@ -108,7 +108,7 @@ export default function Projects({ searchQuery, filters }: ProjectsProps) {
                 project.organization.toLowerCase().includes(searchLower) ||
                 techFound;
 
-            const visibilityFound = filters.visibility == "all" || filters.visibility == project.visibility;
+            const visibilityFound = filters.codeVisibility == "all" || filters.codeVisibility == project.codeVisibility;
             const typeFound = filters.type == "all" || filters.type == project.type;
             const scopeFound = filters.scope == "all" || filters.scope == project.scope;
 
@@ -157,7 +157,7 @@ export default function Projects({ searchQuery, filters }: ProjectsProps) {
                             <p className={portfolioStyles.shortDesc}>{selectedProject.shortDescription}</p>
                         )}
 
-                        <p><a href={selectedProject.github}> GitHub {selectedProject.visibility == "public" ? "" : "(private)"} </a></p>
+                        <p><a href={selectedProject.github}> GitHub {selectedProject.codeVisibility == "public" ? "" : "(private)"} </a></p>
                         
                         {selectedProject.itch && selectedProject.itch != "" &&
                         <a href={selectedProject.itch}>
