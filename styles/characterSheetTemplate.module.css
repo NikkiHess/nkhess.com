@@ -15,18 +15,22 @@
         "header"
         "charDetails";
     grid-template-rows: auto 1fr;
-    height: 90vh;
-    aspect-ratio: 8.5/11;
+
+    aspect-ratio: 8.5 / 11;
+    height: auto;
 
     background-color: white;
     color: black;
 }
+
 #charSheetForm div {
     margin: 0;
 }
 
 #charSheetHeader {
+    font-size: xx-large;
     text-align: center;
+
     grid-area: header;
 }
 
@@ -34,7 +38,7 @@
     grid-area: charDetails;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1px 1px 1px; /* make rows take minimum space */
+    grid-template-rows: repeat(3, 0.1fr); /* make rows take minimum space */
     gap: var(--grid-gap);
 
     width: 90%;
@@ -49,10 +53,21 @@
 #charDetails .inputDiv input {
     width: 100%;
     height: 50%;
+    
+    border: none;
+    border-bottom: 1px solid black;
+    
+    font-size: large;
+    padding: 0;
 }
 
-#charDetails .inputDiv p {
-    margin-top: 2px;
+#charDetails .inputDiv input:focus {
+    outline: none;
+}
+
+#charDetails .inputDiv label {
+    margin-top: 5px;
+    text-transform: uppercase;
 }
 
 #charDetailsL, #charDetailsR {
@@ -68,7 +83,7 @@
     gap: var(--grid-gap);
 }
 
-#charName { grid-area: charName; }
+#characterName { grid-area: charName; }
 #bg { grid-area: bg; }
 #classAndLevel { grid-area: classAndLevel; }
 #species { grid-area: species; }
@@ -90,4 +105,4 @@
 #eyes { grid-area: eyes; }
 #hair { grid-area: hair; }
 #skin { grid-area: skin; }
-#distFeatures { grid-area: distFeatures; }
+#distinguishingFeatures { grid-area: distFeatures; }
