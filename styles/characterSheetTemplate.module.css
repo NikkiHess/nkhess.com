@@ -1,0 +1,93 @@
+:root {
+    --grid-gap: 10px;
+}
+
+#charSheetFormWrapper {
+    display: flex;
+    justify-content: center;
+    
+    width: 100%;
+}
+
+#charSheetForm {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "charDetails";
+    grid-template-rows: auto 1fr;
+    height: 90vh;
+    aspect-ratio: 8.5/11;
+
+    background-color: white;
+    color: black;
+}
+#charSheetForm div {
+    margin: 0;
+}
+
+#charSheetHeader {
+    text-align: center;
+    grid-area: header;
+}
+
+#charDetails {
+    grid-area: charDetails;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1px 1px 1px; /* make rows take minimum space */
+    gap: var(--grid-gap);
+
+    width: 90%;
+
+    justify-self: center;
+}
+
+#charDetails .inputDiv {
+    width: 100%;
+}
+
+#charDetails .inputDiv input {
+    width: 100%;
+    height: 50%;
+}
+
+#charDetails .inputDiv p {
+    margin-top: 2px;
+}
+
+#charDetailsL, #charDetailsR {
+    display: grid;
+}
+
+#charDetailsL {
+    grid-template-areas:
+        "charName charName"
+        "bg classAndLevel"
+        "species subclass";
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap);
+}
+
+#charName { grid-area: charName; }
+#bg { grid-area: bg; }
+#classAndLevel { grid-area: classAndLevel; }
+#species { grid-area: species; }
+#subclass { grid-area: subclass; }
+
+#charDetailsR {
+    display: grid;
+    grid-template-areas:
+        "age height weight"
+        "eyes hair skin"
+        "distFeatures distFeatures distFeatures";
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--grid-gap);
+}
+
+#age { grid-area: age; }
+#height { grid-area: height; }
+#weight { grid-area: weight; }
+#eyes { grid-area: eyes; }
+#hair { grid-area: hair; }
+#skin { grid-area: skin; }
+#distFeatures { grid-area: distFeatures; }

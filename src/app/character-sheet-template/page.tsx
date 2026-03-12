@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import CharacterSheetTemplate from "../components/character-sheet-template";
+import CharacterSheetTemplate from "../components/characterSheetTemplate";
 
 
 export const metadata: Metadata = {
