@@ -84,7 +84,7 @@
 }
 
 #characterName { grid-area: charName; }
-#bg { grid-area: bg; }
+#background { grid-area: bg; }
 #classAndLevel { grid-area: classAndLevel; }
 #species { grid-area: species; }
 #subclass { grid-area: subclass; }
