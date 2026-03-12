@@ -1,7 +1,6 @@
 "use client"; 
 
 import React, { useState } from "react";
-import Image from "next/image"
 import galleryStyles from "../../../styles/gallery.module.css";
 
 interface ScreenshotGalleryProps {
@@ -9,7 +8,7 @@ interface ScreenshotGalleryProps {
   projectTitle: string;
 }
 
-const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshots, projectTitle }) => {
+export default function ScreenshotGallery({ screenshots, projectTitle }: ScreenshotGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextScreenshot = () => {
@@ -42,5 +41,3 @@ const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ screenshots, proj
     </div>
   );
 };
-
-export default ScreenshotGallery;

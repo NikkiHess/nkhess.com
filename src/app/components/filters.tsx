@@ -15,7 +15,7 @@ type RadioGroupProps = {
   onChange: (value: string) => void;
 };
 
-const RadioGroup: React.FC<RadioGroupProps> = ({ name, options, defaultValue, onChange }) => {
+function RadioGroup({ name, options, defaultValue, onChange }: RadioGroupProps) {
     const [value, setValue] = useState(defaultValue);
   
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +47,7 @@ interface FiltersTableProps {
   onFilterChange: (filterName: string, value: string) => void;
 }
 
-const FiltersTable: React.FC<FiltersTableProps> = ({ onFilterChange }) => {
+export default function FiltersTable({ onFilterChange }: FiltersTableProps) {
     const handleFilterChange = (filterName: string, value: string) => {
       onFilterChange(filterName, value);
     }
@@ -92,5 +92,3 @@ const FiltersTable: React.FC<FiltersTableProps> = ({ onFilterChange }) => {
       </div>
     )
 }
-
-export default FiltersTable;

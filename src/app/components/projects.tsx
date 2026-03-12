@@ -1,11 +1,9 @@
 "use client"; // mark as client component
 
-import React, {Component} from "react";
-import Image from "next/image";
+import React, { useState, useEffect, useMemo } from "react";
 import ScreenshotGallery from "../components/gallery";
 
 import portfolioStyles from "../../../styles/portfolio.module.css";
-import galleryStyles from "../../../styles/gallery.module.css";
 
 function dateToNumber(dateStr: string): number {
     if(dateStr == "") return 999999999999999; // this is ugly
@@ -67,101 +65,79 @@ interface Project {
 }
 
 interface ProjectsProps {
-    searchQuery: string;
+    searchQuery: string,
     filters: {
-        visibility: string,
-        type: string,
-        scope: string
+        visibility: string;
+        type: string;
+        scope: string;
     }
 }
 
-interface ProjectsState {
-    projects: Project[];
-    selectedProject: Project | null;
-}
 
-class Projects extends Component<ProjectsProps, ProjectsState> {
-    constructor(props: ProjectsProps) {
-        super(props);
-        this.state = {
-            projects: [],
-            selectedProject: null
-        };
-    }
-
-    componentDidMount(): void {
+export default function Projects({ searchQuery, filters }: ProjectsProps) {
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    
+    useEffect(() => {
         fetch("documents/portfolio.json")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({projects: data})
-            })
-            .catch(error => console.error("Error fetching/parsing JSON: ", error))
-    }
+        .then(response => response.json())
+        .then(data => setProjects(data))
+        .catch(error => console.error("Error fetching/parsing JSON: ", error))
+    }, []);
 
-    showProjectModal = (project: Project) => {
+    const showProjectModal = (project: Project) => {
         document.body.style.overflow = 'hidden';
-        this.setState({ selectedProject: project });
+        setSelectedProject(project);
     };
     
-    closeProjectModal = () => {
+    const closeProjectModal = () => {
         document.body.style.overflow = '';
-        this.setState({ selectedProject: null });
+        setSelectedProject(null);
     };
     
-
-    render(): React.ReactNode {
-        const {projects} = this.state;
-        const {searchQuery} = this.props;
-        
-        // sort by
+    const filteredProjects = useMemo(() => {
+        // sort by comparator
         projects.sort(projectDateComparator);
         
         // filters for searched title, short desc, technologies, organization
-        const searchFiltered = projects.filter(project => {
-            const searchLower = searchQuery.toLowerCase();
-            let techFound = false;
-
-            // search technology substrings
-            project.technologies.forEach(technology => {
-                const lower = technology.toLowerCase();
-
-                if(lower.includes(searchLower)) {
-                    techFound = true;
-                }
+        const filteredProjects = projects.filter(project => {
+            const searchLower = (searchQuery || "").toLowerCase();
+            let techFound = project.technologies.some((tech) => {
+                return tech.toLowerCase().includes(searchLower);
             });
 
-            return project.title.toLowerCase().includes(searchLower) || 
-                    project.shortDescription.toLowerCase().includes(searchLower) ||
-                    project.organization.toLowerCase().includes(searchLower) ||
-                    techFound;
-        });
+            const matchesSearch =
+                project.title.toLowerCase().includes(searchLower) || 
+                project.shortDescription.toLowerCase().includes(searchLower) ||
+                project.organization.toLowerCase().includes(searchLower) ||
+                techFound;
 
-        // filter based on radio button inputs
-        const radioFiltered = searchFiltered.filter(project => {
             let visibilityFound = false, typeFound = false, scopeFound = false;
 
             visibilityFound = 
-                this.props.filters.visibility == "all" ||
-                (this.props.filters.visibility == "public" && project.isPublic) ||
-                (this.props.filters.visibility == "private" && !project.isPublic);
+                filters.visibility == "all" ||
+                (filters.visibility == "public" && project.isPublic) ||
+                (filters.visibility == "private" && !project.isPublic);
 
             typeFound =
-                this.props.filters.type == "all" ||
-                (this.props.filters.type == project.type);
-
+                filters.type == "all" ||
+                (filters.type == project.type);
 
             scopeFound =
-                this.props.filters.scope == "all" ||
-                (this.props.filters.scope == project.scope);
+                filters.scope == "all" ||
+                (filters.scope == project.scope);
 
-            return visibilityFound && typeFound && scopeFound;
+            const matchesFilters = visibilityFound && typeFound && scopeFound;
+
+            return matchesSearch && matchesFilters;
         });
 
-        const selectedProject = this.state.selectedProject;
+        return filteredProjects;
+    }, [projects, searchQuery, filters]);
 
-        return (
+    return (
         <div className={portfolioStyles.projectsContainer}>
-            {radioFiltered.map((project, index) => (
+            {filteredProjects.map((project, index) => (
                 <div key={index} className={portfolioStyles.project}>
                     <h2 className={portfolioStyles.title}> {project.title} </h2>
                     <p className={portfolioStyles.scope}> ({ formatScope(project.scope) }) </p>
@@ -174,12 +150,12 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                         <img src={"/images/projects/" + project.screenshots[0]} alt={`${project.title} screenshot`} className={portfolioStyles.screenshot}/>
                     )}
 
-                    <button onClick={() => this.showProjectModal(project)}>Learn More</button>
+                    <button onClick={() => showProjectModal(project)}>Learn More</button>
                 </div>
             ))}
 
         {selectedProject && (
-            <div className={portfolioStyles.modalOverlay} onClick={this.closeProjectModal}>
+            <div className={portfolioStyles.modalOverlay} onClick={closeProjectModal}>
                 <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
                     <div className={portfolioStyles.modalScroll}>
                         <h2 className={portfolioStyles.title}> {selectedProject.title} </h2>
@@ -221,17 +197,12 @@ class Projects extends Component<ProjectsProps, ProjectsState> {
                             />
                         )}
 
-                        <button onClick={this.closeProjectModal}>Close</button>
+                        <button onClick={closeProjectModal}>Close</button>
                     </div>
                 </div>
             </div>
         )}
 
         </div>
-
-
-        );
-    }
+    );
 }
-
-export default Projects;

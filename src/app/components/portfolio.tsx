@@ -1,67 +1,43 @@
 "use client";
 
-import React, {Component} from "react";
+import React, { useState } from "react";
 import FiltersTable from "../components/filters";
 import Projects from "../components/projects";
 import portfolioStyles from "../../../styles/portfolio.module.css";
 
-interface PortfolioState {
-    searchQuery: string;
-    filters: {
-        visibility: string;
-        type: string;
-        scope: string;
-    }
-}
+export default function Portfolio() {
+    const [searchQuery, setQuery] = useState("");
+    const [filters, setFilters] = useState({visibility: "all", type: "all", scope: "all"});
 
-class Portfolio extends Component<{}, PortfolioState> {
-    constructor(props: {}) {
-        super(props);
-        this.state = {
-            searchQuery: "",
-            filters: {
-                visibility: "all",
-                type: "all",
-                scope: "all"
-            }
-        }
-    }
-
-    handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({ searchQuery: event.target.value });
+    const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setQuery(event.target.value);
     };
 
-    handleFilterChange = (filterName: string, value: string) => {
-        this.setState((prevState) => ({
-            filters: {
-                ...prevState.filters,
-                [filterName]: value
-            }
+    const handleFilterChange = (filterName: string, value: string) => {
+        setFilters((prev) => ({
+            ...prev, // unpack elements from prev filters, so they can be added to the Object
+            [filterName]: value
         }));
     }
 
-    render(): React.ReactNode {
-        return(    
-            <div>
-                <div className={portfolioStyles.searchDiv}>
-                    <label htmlFor={portfolioStyles.search} className={portfolioStyles.searchLabel}> Search </label>
-                    
-                    <input 
-                        type="search"
-                        name="search"
-                        id={portfolioStyles.search}
-                        maxLength={30}
-                        value={this.state.searchQuery}
-                        onChange={this.handleSearchInputChange}
-                    />
-                </div>
-
-                <FiltersTable onFilterChange={this.handleFilterChange}/>
-
-                <Projects searchQuery={this.state.searchQuery} filters={this.state.filters}/>
+    return(    
+        <div>
+            <div className={portfolioStyles.searchDiv}>
+                <label htmlFor={portfolioStyles.search} className={portfolioStyles.searchLabel}> Search </label>
+                
+                <input 
+                    type="search"
+                    name="search"
+                    id={portfolioStyles.search}
+                    maxLength={30}
+                    value={searchQuery}
+                    onChange={handleSearchInputChange}
+                />
             </div>
-        )
-    }
-}
 
-export default Portfolio;
+            <FiltersTable onFilterChange={handleFilterChange}/>
+
+            <Projects searchQuery={searchQuery} filters={filters}/>
+        </div>
+    )
+}

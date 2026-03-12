@@ -34,9 +34,7 @@ export default function CharacterSheetTemplate() {
         <div id={charSheetStyles.charDetails}>
           <div id={charSheetStyles.charDetailsL}>
             <div id={charSheetStyles.charName} className={charSheetStyles.inputDiv}>
-              <input {...register("characterName")} />
-              <p>Character Name</p>
-            </div>
+            <CharacterDetailsInput fieldName="Character Name" register={register}></CharacterDetailsInput>
             <div id={charSheetStyles.bg} className={charSheetStyles.inputDiv}>
               <input {...register("background")} />
               <p>Background</p>

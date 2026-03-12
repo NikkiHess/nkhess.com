@@ -2,9 +2,12 @@ import React from 'react';
 import navStyles from '../../../styles/nav.module.css'
 import Image from "next/image";
 
-const NavItem: React.FC<{ name: string; link: string; }> = ({
-    name, link
-}) => {
+interface NavItemProps {
+    name: string; 
+    link: string;
+}
+
+function NavItem({name, link}: NavItemProps) {
     return(
         <li className={navStyles.navItem}>
             <a href={link}>
@@ -14,9 +17,14 @@ const NavItem: React.FC<{ name: string; link: string; }> = ({
     )
 }
 
-const SocialItem: React.FC<{ name: string; link: string; imgSrc: string; hoverImgSrc: string}> = ({
-    name, link, imgSrc, hoverImgSrc
-}) => {
+interface SocialItemProps {
+    name: string;
+    link: string;
+    imgSrc: string;
+    hoverImgSrc: string;
+}
+
+function SocialItem({ name, link, imgSrc, hoverImgSrc}: SocialItemProps) {
     return(
         <li className={navStyles.socialItem}>
             <a href={link} className={navStyles.imgContainer}>
@@ -27,7 +35,7 @@ const SocialItem: React.FC<{ name: string; link: string; imgSrc: string; hoverIm
     )
 }
 
-const Nav: React.FC = () => {
+export default function Nav() {
     return (
     <ul id={navStyles.nav}>
         <li id={navStyles.navHome}>
@@ -47,5 +55,3 @@ const Nav: React.FC = () => {
     </ul>
     );
 }
-
-export default Nav;
