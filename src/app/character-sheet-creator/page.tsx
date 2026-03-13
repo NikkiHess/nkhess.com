@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import CharacterSheetTemplate from "../components/characterSheetTemplate";
+import CharacterSheetTemplate from "../components/characterSheetCreator/creator";
 
 
 export const metadata: Metadata = {
@@ -8,10 +8,9 @@ export const metadata: Metadata = {
     description: "A character sheet creator for D&D 5.5e (WIP)",
 }
 
-const PortfolioPage: React.FC<{}> = () => {
+export default function PortfolioPage() {
+  // CharacterSheetTemplate is separate here because it's a client component
   return(
     <CharacterSheetTemplate/>
   )
 }
-
-export default PortfolioPage;

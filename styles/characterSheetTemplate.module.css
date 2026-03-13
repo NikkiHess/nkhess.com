@@ -2,6 +2,29 @@
     --grid-gap: 10px;
 }
 
+#charSheetBody {
+    margin-bottom: 20px;
+}
+
+#charSheetControls h2 {
+    margin-top: 0;
+}
+
+#charSheetControls input {
+    scale: 125%;
+    vertical-align: text-bottom;
+}
+
+#charSheetControls label {
+    font-size: 1.25em;
+
+    padding-left: 2px;
+}
+
+.visibilityToggle {
+    user-select: none;
+}
+
 #charSheetFormWrapper {
     display: flex;
     justify-content: center;
@@ -21,6 +44,8 @@
 
     background-color: white;
     color: black;
+
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 #charSheetForm div {
@@ -28,10 +53,18 @@
 }
 
 #charSheetHeader {
-    font-size: xx-large;
+    grid-area: header;
+    
+    font-size: 3em;
+    font-weight: bold;
     text-align: center;
 
-    grid-area: header;
+    transition: margin 1s ease-in-out;
+}
+
+.collapsedGridItem {
+    visibility: hidden !important;
+    margin: auto !important;
 }
 
 #charDetails {
@@ -66,6 +99,8 @@
 }
 
 #charDetails .inputDiv label {
+    display: block;
+    
     margin-top: 5px;
     text-transform: uppercase;
 }

@@ -8,17 +8,29 @@
 }
 
 #nav {
+    /* leave out bullet points */
     list-style-type: none;
+    
+    /* position origin at the top left of the page */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    position: fixed;
     margin: -2px;
-    padding: 0px;
-    background-color: rgb(39, 39, 42);;
+
+    /* no padding so elements don't drift to the side */
+    padding: 0;
+    
+    width: 100%;
+
+    /* colors */
+    background-color: rgb(39, 39, 42);
     border: 2px solid black;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2.5px 15px rgba(0, 0, 0, 0.5);
+    
+    /* stuff shouldn't overflow but just in case */
     overflow: hidden;
+
+    /* make sure nothing appears on top of this */
     z-index: 5;
     
     transition: all 0.5s ease-in, all 0.2s ease-out;
