@@ -84,10 +84,8 @@ const Home = () => (
     <div id={indexStyles.innerHome}>
       <div id={indexStyles.imgContainer}>
         <Image src='/images/websiteSelfie.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki} fill={true}/>
-        <div id={indexStyles.starContainer}>
-          <div id={indexStyles.topLeftStar} className={indexStyles.cornerStar}>★</div>
-          <div id={indexStyles.bottomRightStar} className={indexStyles.cornerStar}>★</div>
-        </div>
+        <div id={indexStyles.topLeftStar} className={indexStyles.cornerStar}>★</div>
+        <div id={indexStyles.bottomRightStar} className={indexStyles.cornerStar}>★</div>
       </div>
       <p id={indexStyles.about}>
         Hello, my name is <b>Nikki Hess</b>! 
