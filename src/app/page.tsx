@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image'
+
 import indexStyles from '../../styles/index.module.css';
 
 /**
@@ -81,9 +83,11 @@ const Home = () => (
   <div id={indexStyles.homeContainer}>
     <div id={indexStyles.innerHome}>
       <div id={indexStyles.imgContainer}>
-        <img src='/images/websiteSelfie.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki}/>
-        <div id={indexStyles.topLeftStar}>★</div>
-        <div id={indexStyles.bottomRightStar}>★</div>
+        <Image src='/images/websiteSelfie.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki} fill={true}/>
+        <div id={indexStyles.starContainer}>
+          <div id={indexStyles.topLeftStar} className={indexStyles.cornerStar}>★</div>
+          <div id={indexStyles.bottomRightStar} className={indexStyles.cornerStar}>★</div>
+        </div>
       </div>
       <p id={indexStyles.about}>
         Hello, my name is <b>Nikki Hess</b>! 
