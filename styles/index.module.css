@@ -19,6 +19,8 @@
     width: 400px;
     aspect-ratio: 1/1;
     margin: 0 auto;
+
+    position: relative;
 }
 
 #about {
@@ -34,18 +36,10 @@
     transition: all 0.3s ease;
 }
 
-#starContainer {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-}
-
 .cornerStar {
     position: absolute;
     font-size: 75px;
     -webkit-text-stroke: 3px white;
-
 }
 
 #topLeftStar {
