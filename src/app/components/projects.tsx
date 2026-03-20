@@ -5,6 +5,7 @@ import ScreenshotGallery from "../components/gallery";
 import { Filters } from "./portfolio";
 
 import portfolioStyles from "../styles/portfolio.module.css";
+import commonStyles from "../styles/common.module.css";
 
 function dateToNumber(dateStr: string): number {
     if(dateStr == "") return 999999999999999; // this is ugly
@@ -140,9 +141,9 @@ export default function Projects({ searchQuery, filters }: ProjectsProps) {
             ))}
 
         {selectedProject && (
-            <div className={portfolioStyles.modalOverlay} onClick={closeProjectModal}>
-                <div className={portfolioStyles.modalContent} onClick={(e) => e.stopPropagation()}>
-                    <div className={portfolioStyles.modalScroll}>
+            <div className={commonStyles.modalOverlay} onClick={closeProjectModal}>
+                <div className={commonStyles.modalContent} onClick={(e) => e.stopPropagation()}>
+                    <div className={commonStyles.modalScroll}>
                         <h2 className={portfolioStyles.title}> {selectedProject.title} </h2>
                         <p className={portfolioStyles.scope}> ({ formatScope(selectedProject.scope) }) </p>
                         <b/>

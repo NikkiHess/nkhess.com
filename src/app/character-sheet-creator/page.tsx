@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
-import CharacterSheetCreator from "../components/characterSheetCreator/characterSheetCreator";
 
+import CharacterSheetCreator from "../components/characterSheetCreator/characterSheetCreator";
 
 export const metadata: Metadata = {
     title: "D&D 5.5e Character Sheet Template - Nikki Hess",
@@ -9,8 +9,9 @@ export const metadata: Metadata = {
 }
 
 export default function PortfolioPage() {
-  // CharacterSheetTemplate is separate here because it's a client component
   return(
-    <CharacterSheetCreator/>
+    <div>
+      <CharacterSheetCreator/>
+    </div>
   )
 }

@@ -31,3 +31,112 @@
     max-width: 600px;
     aspect-ratio: 16 / 9;
 }
+
+/* modal */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modalContent {
+    background-color: #2e2e33;
+    color: #f0f0f0;
+    border: 3px solid white;
+    border-radius: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5); /* match project hover shadow */
+    padding: 0;
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden; /* clip scrollbar to rounded edges */
+
+    button {
+        align-self: flex-end;
+        background-color: #45454c;
+        border-color: white;
+        color: #f0f0f0;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 15px;
+        padding: 8px 15px;
+        cursor: pointer;
+        margin-top: 15px;
+        transition: background-color 0.2s;
+    }
+    
+    button:hover {
+        background-color: #5a5a63;
+    }
+
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: -30px;
+    }
+
+    .scope {
+        font-size: 20px;
+        color: #c0c0c0;
+        margin-bottom: -10px;
+    }
+
+    .projDetails {
+        font-size: 17px;
+        margin-bottom: -4px;
+    }
+    
+    .shortDesc, .longDesc {
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: -20px;
+    }
+
+    .screenshot, .galleryContainer {
+        margin: 10px auto;
+    }
+} 
+
+.modalScroll {
+    padding: 25px 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #c0c0c0 #2e2e33;
+}
+
+.modalScroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.modalScroll::-webkit-scrollbar-track {
+    background-color: #2e2e33;
+    border-radius: 10px;
+}
+
+.modalScroll::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    border: 2px solid #2e2e33;
+}
+
+.modalScroll::-webkit-scrollbar-thumb:hover {
+    background-color: #e0e0e0;
+}

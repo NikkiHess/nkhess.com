@@ -150,10 +150,22 @@
     #classIcon {
         position: relative;
         aspect-ratio: 1/1;
-        overflow: hidden;
+        
+        cursor: pointer; /* indicate that it's clickable */
     }
 
     #level {
         
     }
+}
+
+.floaty {
+    transition-property: transform, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+.floaty:hover {
+    transform: translate(0, -5%);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 15px;
 }
