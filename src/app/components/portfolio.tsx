@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import FiltersTable from "../components/filters";
 import Projects from "../components/projects";
-import portfolioStyles from "../../../styles/portfolio.module.css";
+import portfolioStyles from "../styles/portfolio.module.css";
 
 // DRY
 export const FILTER_KEYS = ["codeVisibility", "type", "scope"] as const; // define keys

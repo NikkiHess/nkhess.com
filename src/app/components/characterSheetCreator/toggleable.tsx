@@ -1,8 +1,6 @@
 "use client"; 
 
-import { useFormContext } from "react-hook-form";
-
-import charSheetStyles from "../../../../styles/characterSheetTemplate.module.css"
+import charSheetStyles from "../../styles/characterSheetCreator.module.css";
 import { camelize } from "../../utils/stringUtils";
 
 interface ToggleableProps {

@@ -1,7 +1,7 @@
 "use client"; 
 
 import React, { useState } from "react";
-import galleryStyles from "../../../styles/gallery.module.css";
+import galleryStyles from "../styles/gallery.module.css";
 
 interface ScreenshotGalleryProps {
   screenshots: string[];

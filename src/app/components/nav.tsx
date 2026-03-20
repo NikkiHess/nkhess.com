@@ -1,5 +1,5 @@
 import React from 'react';
-import navStyles from '../../../styles/nav.module.css'
+import navStyles from '../styles/nav.module.css'
 import Image from "next/image";
 
 interface NavItemProps {

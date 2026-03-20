@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import CharacterSheetTemplate from "../components/characterSheetCreator/creator";
+import CharacterSheetCreator from "../components/characterSheetCreator/characterSheetCreator";
 
 
 export const metadata: Metadata = {
@@ -11,6 +11,6 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   // CharacterSheetTemplate is separate here because it's a client component
   return(
-    <CharacterSheetTemplate/>
+    <CharacterSheetCreator/>
   )
 }

@@ -1,6 +1,6 @@
 import './globals.css'
 import Nav from "./components/nav"
-import commonStyles from '../../styles/common.module.css'
+import commonStyles from './styles/common.module.css'
 
 export default function RootLayout({
   children,

@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-import Image from 'next/image'
+import type { Metadata, Viewport } from 'next';
+import Image from 'next/image';
 
-import indexStyles from '../../styles/index.module.css';
+import indexStyles from './styles/index.module.css';
 
 /**
  * Replaces **string** with <b>string</b>
@@ -74,7 +74,10 @@ export const metadata: Metadata = {
       },
     ],
   },
-  themeColor: '#ed99a0',
+}
+
+export const viewport: Viewport = {
+  themeColor: "#ed99a0",
 }
 
 // TODO: Investigate weird glitch at width 465
@@ -83,7 +86,14 @@ const Home = () => (
   <div id={indexStyles.homeContainer}>
     <div id={indexStyles.innerHome}>
       <div id={indexStyles.imgContainer}>
-        <Image src='/images/websiteSelfie.png' alt='A photo of Nikki' id={indexStyles.nikkiPikki} fill={true}/>
+        <Image 
+          src='/images/websiteSelfie.png'
+          alt='A photo of Nikki'
+          id={indexStyles.nikkiPikki}
+          fill={true}
+          loading="eager"
+          priority
+        />
         <div id={indexStyles.topLeftStar} className={indexStyles.cornerStar}>★</div>
         <div id={indexStyles.bottomRightStar} className={indexStyles.cornerStar}>★</div>
       </div>

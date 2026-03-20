@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import portfolioStyles from "../../../styles/portfolio.module.css";
+import portfolioStyles from "../styles/portfolio.module.css";
 
 type Option = {
     label: string;

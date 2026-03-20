@@ -1,6 +1,6 @@
 "use client";
 
-import resumeStyles from "../../../styles/resume.module.css";
+import resumeStyles from "../styles/resume.module.css";
 
 export default function Resume() {
     return (

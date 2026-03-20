@@ -4,7 +4,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import ScreenshotGallery from "../components/gallery";
 import { Filters } from "./portfolio";
 
-import portfolioStyles from "../../../styles/portfolio.module.css";
+import portfolioStyles from "../styles/portfolio.module.css";
 
 function dateToNumber(dateStr: string): number {
     if(dateStr == "") return 999999999999999; // this is ugly
